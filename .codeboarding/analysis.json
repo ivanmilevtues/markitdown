@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-04-20T06:06:42.158095+00:00",
+    "generated_at": "2026-04-20T06:07:09.131553+00:00",
     "commit_hash": "",
     "repo_name": "markitdown",
     "depth_level": 2,
@@ -179,7 +179,9 @@
         "packages/markitdown/src/markitdown/converters/_pdf_converter.py|packages.markitdown.src.markitdown.converters._pdf_converter._extract_tables_from_words",
         "packages/markitdown/src/markitdown/converters/_pdf_converter.py|packages.markitdown.src.markitdown.converters._pdf_converter.PdfConverter",
         "packages/markitdown/src/markitdown/converters/_pdf_converter.py|packages.markitdown.src.markitdown.converters._pdf_converter.PdfConverter.accepts",
-        "packages/markitdown/src/markitdown/converters/_pdf_converter.py|packages.markitdown.src.markitdown.converters._pdf_converter.PdfConverter.convert"
+        "packages/markitdown/src/markitdown/converters/_pdf_converter.py|packages.markitdown.src.markitdown.converters._pdf_converter.PdfConverter.convert",
+        "packages/markitdown/src/markitdown/converters/_pdf_converter.py|packages.markitdown.src.markitdown.converters._pdf_converter.extract_tables_from_pdf",
+        "packages/markitdown/src/markitdown/converters/_pdf_converter.py|packages.markitdown.src.markitdown.converters._pdf_converter._words_to_grid"
       ]
     },
     "packages/markitdown/src/markitdown/converters/_plain_text_converter.py": {
@@ -1098,6 +1100,20 @@
       "start_line": 520,
       "end_line": 589,
       "type": "METHOD"
+    },
+    "packages/markitdown/src/markitdown/converters/_pdf_converter.py|packages.markitdown.src.markitdown.converters._pdf_converter.extract_tables_from_pdf": {
+      "file_path": "packages/markitdown/src/markitdown/converters/_pdf_converter.py",
+      "qualified_name": "packages.markitdown.src.markitdown.converters._pdf_converter.extract_tables_from_pdf",
+      "start_line": 592,
+      "end_line": 625,
+      "type": "FUNCTION"
+    },
+    "packages/markitdown/src/markitdown/converters/_pdf_converter.py|packages.markitdown.src.markitdown.converters._pdf_converter._words_to_grid": {
+      "file_path": "packages/markitdown/src/markitdown/converters/_pdf_converter.py",
+      "qualified_name": "packages.markitdown.src.markitdown.converters._pdf_converter._words_to_grid",
+      "start_line": 628,
+      "end_line": 637,
+      "type": "FUNCTION"
     },
     "packages/markitdown/src/markitdown/converters/_plain_text_converter.py|packages.markitdown.src.markitdown.converters._plain_text_converter.PlainTextConverter": {
       "file_path": "packages/markitdown/src/markitdown/converters/_plain_text_converter.py",
@@ -3246,7 +3262,9 @@
             "packages.markitdown.src.markitdown.converters._pdf_converter._to_markdown_table.fmt_row",
             "packages.markitdown.src.markitdown.converters._pdf_converter._extract_form_content_from_words",
             "packages.markitdown.src.markitdown.converters._pdf_converter._extract_form_content_from_words.extract_cells",
-            "packages.markitdown.src.markitdown.converters._pdf_converter.PdfConverter.convert"
+            "packages.markitdown.src.markitdown.converters._pdf_converter.PdfConverter.convert",
+            "packages.markitdown.src.markitdown.converters._pdf_converter.extract_tables_from_pdf",
+            "packages.markitdown.src.markitdown.converters._pdf_converter._words_to_grid"
           ]
         },
         {
@@ -3387,7 +3405,9 @@
                 "packages.markitdown.src.markitdown.converters._pdf_converter._to_markdown_table.fmt_row",
                 "packages.markitdown.src.markitdown.converters._pdf_converter._extract_form_content_from_words",
                 "packages.markitdown.src.markitdown.converters._pdf_converter._extract_form_content_from_words.extract_cells",
-                "packages.markitdown.src.markitdown.converters._pdf_converter.PdfConverter.convert"
+                "packages.markitdown.src.markitdown.converters._pdf_converter.PdfConverter.convert",
+                "packages.markitdown.src.markitdown.converters._pdf_converter.extract_tables_from_pdf",
+                "packages.markitdown.src.markitdown.converters._pdf_converter._words_to_grid"
               ]
             }
           ],
