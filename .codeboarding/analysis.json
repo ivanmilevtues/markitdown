@@ -1,12 +1,12 @@
 {
   "metadata": {
-    "generated_at": "2026-04-20T05:46:16.300341+00:00",
+    "generated_at": "2026-04-20T06:06:05.337303+00:00",
     "commit_hash": "",
     "repo_name": "markitdown",
     "depth_level": 2,
     "file_coverage_summary": {
       "total_files": 96,
-      "analyzed": 51,
+      "analyzed": 52,
       "not_analyzed": 45,
       "not_analyzed_by_reason": {
         "other": 15,
@@ -14,7 +14,7 @@
       }
     }
   },
-  "description": "The markitdown library is structured as a modular conversion pipeline that transforms various document formats into LLM-friendly Markdown. The architecture follows a Facade and Strategy pattern, where a central orchestrator (MarkItDown) manages a registry of specialized converters. Data flows from external interfaces (CLI, API, or MCP) through the core registry, which routes the input to the most appropriate converter—ranging from standard text parsers to AI-powered OCR services and cloud-based document intelligence adapters—finally producing a unified DocumentConverterResult.",
+  "description": "The markitdown library is structured as a modular conversion pipeline that transforms various document formats into LLM-friendly Markdown. The architecture follows a Facade and Strategy pattern, where a central orchestrator (MarkItDown) manages a registry of specialized converters. Data flows from external interfaces (CLI, API, or MCP) through the core registry, which routes the input to the most appropriate converter\u2014ranging from standard text parsers to AI-powered OCR services and cloud-based document intelligence adapters\u2014finally producing a unified DocumentConverterResult.",
   "files": {
     "packages/markitdown-mcp/src/markitdown_mcp/__main__.py": {
       "method_keys": [
@@ -412,6 +412,14 @@
         "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py|packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.RtfConverter",
         "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py|packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.RtfConverter.accepts",
         "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py|packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.RtfConverter.convert"
+      ]
+    },
+    "packages/markitdown/src/markitdown/converters/_yaml_converter.py": {
+      "method_keys": [
+        "packages/markitdown/src/markitdown/converters/_yaml_converter.py|packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter",
+        "packages/markitdown/src/markitdown/converters/_yaml_converter.py|packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter.accepts",
+        "packages/markitdown/src/markitdown/converters/_yaml_converter.py|packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter.convert",
+        "packages/markitdown/src/markitdown/converters/_yaml_converter.py|packages.markitdown.src.markitdown.converters._yaml_converter._parse_yaml_frontmatter"
       ]
     }
   },
@@ -2137,6 +2145,34 @@
       "start_line": 57,
       "end_line": 71,
       "type": "METHOD"
+    },
+    "packages/markitdown/src/markitdown/converters/_yaml_converter.py|packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter": {
+      "file_path": "packages/markitdown/src/markitdown/converters/_yaml_converter.py",
+      "qualified_name": "packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter",
+      "start_line": 10,
+      "end_line": 40,
+      "type": "CLASS"
+    },
+    "packages/markitdown/src/markitdown/converters/_yaml_converter.py|packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter.accepts": {
+      "file_path": "packages/markitdown/src/markitdown/converters/_yaml_converter.py",
+      "qualified_name": "packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter.accepts",
+      "start_line": 15,
+      "end_line": 22,
+      "type": "METHOD"
+    },
+    "packages/markitdown/src/markitdown/converters/_yaml_converter.py|packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter.convert": {
+      "file_path": "packages/markitdown/src/markitdown/converters/_yaml_converter.py",
+      "qualified_name": "packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter.convert",
+      "start_line": 24,
+      "end_line": 40,
+      "type": "METHOD"
+    },
+    "packages/markitdown/src/markitdown/converters/_yaml_converter.py|packages.markitdown.src.markitdown.converters._yaml_converter._parse_yaml_frontmatter": {
+      "file_path": "packages/markitdown/src/markitdown/converters/_yaml_converter.py",
+      "qualified_name": "packages.markitdown.src.markitdown.converters._yaml_converter._parse_yaml_frontmatter",
+      "start_line": 43,
+      "end_line": 52,
+      "type": "FUNCTION"
     }
   },
   "components": [
@@ -2481,7 +2517,9 @@
             },
             {
               "qualified_name": "packages.markitdown.src.markitdown._markitdown.MarkItDown._load_plugins",
-              "reference_file": "packages/markitdown/src/markitdown/_markitdown.py"
+              "reference_file": "packages/markitdown/src/markitdown/_markitdown.py",
+              "reference_start_line": 0,
+              "reference_end_line": 0
             }
           ],
           "source_cluster_ids": [
@@ -3575,6 +3613,32 @@
           ],
           "component_id": "3.4",
           "can_expand": true
+        },
+        {
+          "name": "YAML Document Converter",
+          "description": "Converts YAML and YML files into Markdown with syntax-highlighted fenced code blocks. Includes a frontmatter parser for extracting metadata from Markdown-style documents.",
+          "key_entities": [
+            {
+              "qualified_name": "packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter",
+              "reference_file": "packages/markitdown/src/markitdown/converters/_yaml_converter.py",
+              "reference_start_line": 10,
+              "reference_end_line": 40
+            }
+          ],
+          "source_cluster_ids": [],
+          "file_methods": [
+            {
+              "file_path": "packages/markitdown/src/markitdown/converters/_yaml_converter.py",
+              "methods": [
+                "packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter",
+                "packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter.accepts",
+                "packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter.convert",
+                "packages.markitdown.src.markitdown.converters._yaml_converter._parse_yaml_frontmatter"
+              ]
+            }
+          ],
+          "component_id": "3.5",
+          "can_expand": false
         }
       ],
       "components_relations": [
@@ -3622,6 +3686,13 @@
           "dst_id": "3.4",
           "edge_count": 2,
           "is_static": true
+        },
+        {
+          "relation": "Uses shared exception types and base converter abstractions for error handling during YAML parsing.",
+          "src_name": "YAML Document Converter",
+          "dst_name": "Specialized Format Orchestrators",
+          "src_id": "3.5",
+          "dst_id": "3.4"
         }
       ]
     },
@@ -3802,7 +3873,7 @@
         },
         {
           "name": "Office OCR Extensions",
-          "description": "This component provides specialized converters for Microsoft Office formats (Word, Excel, and PowerPoint). These converters implement format-specific logic to identify and extract visual assets—such as embedded images, charts, and diagrams—and delegate the visual analysis to the central OCR service to enrich the final Markdown output with descriptions of these elements.",
+          "description": "This component provides specialized converters for Microsoft Office formats (Word, Excel, and PowerPoint). These converters implement format-specific logic to identify and extract visual assets\u2014such as embedded images, charts, and diagrams\u2014and delegate the visual analysis to the central OCR service to enrich the final Markdown output with descriptions of these elements.",
           "key_entities": [
             {
               "qualified_name": "packages.markitdown-ocr.src.markitdown_ocr._docx_converter_with_ocr.DocxConverterWithOCR",
