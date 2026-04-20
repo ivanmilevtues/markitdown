@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-04-20T06:06:05.337303+00:00",
+    "generated_at": "2026-04-20T06:06:42.158095+00:00",
     "commit_hash": "",
     "repo_name": "markitdown",
     "depth_level": 2,
@@ -16,17 +16,6 @@
   },
   "description": "The markitdown library is structured as a modular conversion pipeline that transforms various document formats into LLM-friendly Markdown. The architecture follows a Facade and Strategy pattern, where a central orchestrator (MarkItDown) manages a registry of specialized converters. Data flows from external interfaces (CLI, API, or MCP) through the core registry, which routes the input to the most appropriate converter\u2014ranging from standard text parsers to AI-powered OCR services and cloud-based document intelligence adapters\u2014finally producing a unified DocumentConverterResult.",
   "files": {
-    "packages/markitdown-mcp/src/markitdown_mcp/__main__.py": {
-      "method_keys": [
-        "packages/markitdown-mcp/src/markitdown_mcp/__main__.py|packages.markitdown-mcp.src.markitdown_mcp.__main__.convert_to_markdown",
-        "packages/markitdown-mcp/src/markitdown_mcp/__main__.py|packages.markitdown-mcp.src.markitdown_mcp.__main__.check_plugins_enabled",
-        "packages/markitdown-mcp/src/markitdown_mcp/__main__.py|packages.markitdown-mcp.src.markitdown_mcp.__main__.create_starlette_app",
-        "packages/markitdown-mcp/src/markitdown_mcp/__main__.py|packages.markitdown-mcp.src.markitdown_mcp.__main__.create_starlette_app.handle_sse",
-        "packages/markitdown-mcp/src/markitdown_mcp/__main__.py|packages.markitdown-mcp.src.markitdown_mcp.__main__.create_starlette_app.handle_streamable_http",
-        "packages/markitdown-mcp/src/markitdown_mcp/__main__.py|packages.markitdown-mcp.src.markitdown_mcp.__main__.create_starlette_app.lifespan",
-        "packages/markitdown-mcp/src/markitdown_mcp/__main__.py|packages.markitdown-mcp.src.markitdown_mcp.__main__.main"
-      ]
-    },
     "packages/markitdown/src/markitdown/__main__.py": {
       "method_keys": [
         "packages/markitdown/src/markitdown/__main__.py|packages.markitdown.src.markitdown.__main__.main",
@@ -424,55 +413,6 @@
     }
   },
   "methods_index": {
-    "packages/markitdown-mcp/src/markitdown_mcp/__main__.py|packages.markitdown-mcp.src.markitdown_mcp.__main__.convert_to_markdown": {
-      "file_path": "packages/markitdown-mcp/src/markitdown_mcp/__main__.py",
-      "qualified_name": "packages.markitdown-mcp.src.markitdown_mcp.__main__.convert_to_markdown",
-      "start_line": 21,
-      "end_line": 23,
-      "type": "FUNCTION"
-    },
-    "packages/markitdown-mcp/src/markitdown_mcp/__main__.py|packages.markitdown-mcp.src.markitdown_mcp.__main__.check_plugins_enabled": {
-      "file_path": "packages/markitdown-mcp/src/markitdown_mcp/__main__.py",
-      "qualified_name": "packages.markitdown-mcp.src.markitdown_mcp.__main__.check_plugins_enabled",
-      "start_line": 26,
-      "end_line": 31,
-      "type": "FUNCTION"
-    },
-    "packages/markitdown-mcp/src/markitdown_mcp/__main__.py|packages.markitdown-mcp.src.markitdown_mcp.__main__.create_starlette_app": {
-      "file_path": "packages/markitdown-mcp/src/markitdown_mcp/__main__.py",
-      "qualified_name": "packages.markitdown-mcp.src.markitdown_mcp.__main__.create_starlette_app",
-      "start_line": 34,
-      "end_line": 78,
-      "type": "FUNCTION"
-    },
-    "packages/markitdown-mcp/src/markitdown_mcp/__main__.py|packages.markitdown-mcp.src.markitdown_mcp.__main__.create_starlette_app.handle_sse": {
-      "file_path": "packages/markitdown-mcp/src/markitdown_mcp/__main__.py",
-      "qualified_name": "packages.markitdown-mcp.src.markitdown_mcp.__main__.create_starlette_app.handle_sse",
-      "start_line": 43,
-      "end_line": 53,
-      "type": "FUNCTION"
-    },
-    "packages/markitdown-mcp/src/markitdown_mcp/__main__.py|packages.markitdown-mcp.src.markitdown_mcp.__main__.create_starlette_app.handle_streamable_http": {
-      "file_path": "packages/markitdown-mcp/src/markitdown_mcp/__main__.py",
-      "qualified_name": "packages.markitdown-mcp.src.markitdown_mcp.__main__.create_starlette_app.handle_streamable_http",
-      "start_line": 55,
-      "end_line": 58,
-      "type": "FUNCTION"
-    },
-    "packages/markitdown-mcp/src/markitdown_mcp/__main__.py|packages.markitdown-mcp.src.markitdown_mcp.__main__.create_starlette_app.lifespan": {
-      "file_path": "packages/markitdown-mcp/src/markitdown_mcp/__main__.py",
-      "qualified_name": "packages.markitdown-mcp.src.markitdown_mcp.__main__.create_starlette_app.lifespan",
-      "start_line": 61,
-      "end_line": 68,
-      "type": "FUNCTION"
-    },
-    "packages/markitdown-mcp/src/markitdown_mcp/__main__.py|packages.markitdown-mcp.src.markitdown_mcp.__main__.main": {
-      "file_path": "packages/markitdown-mcp/src/markitdown_mcp/__main__.py",
-      "qualified_name": "packages.markitdown-mcp.src.markitdown_mcp.__main__.main",
-      "start_line": 82,
-      "end_line": 136,
-      "type": "FUNCTION"
-    },
     "packages/markitdown/src/markitdown/__main__.py|packages.markitdown.src.markitdown.__main__.main": {
       "file_path": "packages/markitdown/src/markitdown/__main__.py",
       "qualified_name": "packages.markitdown.src.markitdown.__main__.main",
@@ -2201,18 +2141,6 @@
       ],
       "file_methods": [
         {
-          "file_path": "packages/markitdown-mcp/src/markitdown_mcp/__main__.py",
-          "methods": [
-            "packages.markitdown-mcp.src.markitdown_mcp.__main__.convert_to_markdown",
-            "packages.markitdown-mcp.src.markitdown_mcp.__main__.check_plugins_enabled",
-            "packages.markitdown-mcp.src.markitdown_mcp.__main__.create_starlette_app",
-            "packages.markitdown-mcp.src.markitdown_mcp.__main__.create_starlette_app.handle_sse",
-            "packages.markitdown-mcp.src.markitdown_mcp.__main__.create_starlette_app.handle_streamable_http",
-            "packages.markitdown-mcp.src.markitdown_mcp.__main__.create_starlette_app.lifespan",
-            "packages.markitdown-mcp.src.markitdown_mcp.__main__.main"
-          ]
-        },
-        {
           "file_path": "packages/markitdown/src/markitdown/__main__.py",
           "methods": [
             "packages.markitdown.src.markitdown.__main__.main",
@@ -2667,31 +2595,6 @@
           ],
           "component_id": "1.2",
           "can_expand": true
-        },
-        {
-          "name": "MCP Server Interface",
-          "description": "A specialized adapter that exposes MarkItDown's capabilities via the Model Context Protocol (MCP). It allows LLMs and external agents to interact with the library as a service, handling network-specific concerns like Server-Sent Events (SSE) and HTTP streaming while delegating the actual conversion to the core orchestrator.",
-          "key_entities": [],
-          "source_cluster_ids": [
-            5,
-            8
-          ],
-          "file_methods": [
-            {
-              "file_path": "packages/markitdown-mcp/src/markitdown_mcp/__main__.py",
-              "methods": [
-                "packages.markitdown-mcp.src.markitdown_mcp.__main__.convert_to_markdown",
-                "packages.markitdown-mcp.src.markitdown_mcp.__main__.check_plugins_enabled",
-                "packages.markitdown-mcp.src.markitdown_mcp.__main__.create_starlette_app",
-                "packages.markitdown-mcp.src.markitdown_mcp.__main__.create_starlette_app.handle_sse",
-                "packages.markitdown-mcp.src.markitdown_mcp.__main__.create_starlette_app.handle_streamable_http",
-                "packages.markitdown-mcp.src.markitdown_mcp.__main__.create_starlette_app.lifespan",
-                "packages.markitdown-mcp.src.markitdown_mcp.__main__.main"
-              ]
-            }
-          ],
-          "component_id": "1.3",
-          "can_expand": true
         }
       ],
       "components_relations": [
@@ -2700,15 +2603,6 @@
           "src_name": "Registry & Plugin Manager",
           "dst_name": "Conversion Orchestrator & API",
           "src_id": "1.2",
-          "dst_id": "1.1",
-          "edge_count": 0,
-          "is_static": false
-        },
-        {
-          "relation": "Forwards conversion requests received via the MCP protocol to the core MarkItDown instance for processing.",
-          "src_name": "MCP Server Interface",
-          "dst_name": "Conversion Orchestrator & API",
-          "src_id": "1.3",
           "dst_id": "1.1",
           "edge_count": 0,
           "is_static": false
@@ -3638,7 +3532,7 @@
             }
           ],
           "component_id": "3.5",
-          "can_expand": false
+          "can_expand": true
         }
       ],
       "components_relations": [
@@ -3692,7 +3586,9 @@
           "src_name": "YAML Document Converter",
           "dst_name": "Specialized Format Orchestrators",
           "src_id": "3.5",
-          "dst_id": "3.4"
+          "dst_id": "3.4",
+          "edge_count": 0,
+          "is_static": false
         }
       ]
     },
@@ -4089,27 +3985,6 @@
           ],
           "component_id": "5.3",
           "can_expand": true
-        },
-        {
-          "name": "MCP Server Interface",
-          "description": "Implements the Model Context Protocol (MCP) to expose MarkItDown as a standardized tool for LLMs, supporting both local (STDIO) and remote (HTTP/SSE) execution.",
-          "key_entities": [],
-          "source_cluster_ids": [
-            0,
-            1
-          ],
-          "file_methods": [
-            {
-              "file_path": "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py",
-              "methods": [
-                "packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.RtfConverter",
-                "packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.RtfConverter.accepts",
-                "packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.RtfConverter.convert"
-              ]
-            }
-          ],
-          "component_id": "5.4",
-          "can_expand": true
         }
       ],
       "components_relations": [
@@ -4119,15 +3994,6 @@
           "dst_name": "OCR Extension Suite",
           "src_id": "5.1",
           "dst_id": "5.3",
-          "edge_count": 0,
-          "is_static": false
-        },
-        {
-          "relation": "Relies on the plugin-aware core library to ensure all registered extensions (like OCR or custom plugins) are available for LLM tool calls.",
-          "src_name": "MCP Server Interface",
-          "dst_name": "Plugin Discovery & Infrastructure",
-          "src_id": "5.4",
-          "dst_id": "5.1",
           "edge_count": 0,
           "is_static": false
         },
@@ -4147,15 +4013,6 @@
           "src_id": "5.3",
           "dst_id": "5.1",
           "edge_count": 2,
-          "is_static": true
-        },
-        {
-          "relation": "calls",
-          "src_name": "OCR Extension Suite",
-          "dst_name": "MCP Server Interface",
-          "src_id": "5.3",
-          "dst_id": "5.4",
-          "edge_count": 1,
           "is_static": true
         }
       ]
