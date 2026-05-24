@@ -1,7 +1,7 @@
 {
   "repository_name": "markitdown",
-  "timestamp": "2026-04-20T05:39:29.685492+00:00",
-  "overall_score": 0.7858407079646018,
+  "timestamp": "2026-05-24T05:57:08.344677+00:00",
+  "overall_score": 0.7717391304347826,
   "check_summaries": [
     {
       "check_name": "function_size",
@@ -17,10 +17,10 @@
       "check_name": "fan_out",
       "description": "Checks efferent coupling: how many other functions each function calls",
       "check_type": "standard",
-      "total_entities_checked": 198,
+      "total_entities_checked": 196,
       "findings_count": 1,
       "warning_count": 1,
-      "score": 0.9949494949494949,
+      "score": 0.9948979591836735,
       "finding_groups": [
         {
           "severity": "warning",
@@ -42,7 +42,7 @@
       "check_name": "fan_in",
       "description": "Checks afferent coupling: how many other functions call each function",
       "check_type": "standard",
-      "total_entities_checked": 198,
+      "total_entities_checked": 196,
       "findings_count": 0,
       "warning_count": 0,
       "score": 1.0,
@@ -52,10 +52,10 @@
       "check_name": "god_class",
       "description": "Detects classes with too many methods, too much code, or too many outgoing dependencies",
       "check_type": "standard",
-      "total_entities_checked": 32,
+      "total_entities_checked": 33,
       "findings_count": 2,
       "warning_count": 2,
-      "score": 0.9375,
+      "score": 0.9393939393939394,
       "finding_groups": [
         {
           "severity": "warning",
@@ -81,7 +81,7 @@
       "description": "Detects circular dependencies between packages",
       "check_type": "circular_dependencies",
       "cycles": [
-        "packages.markitdown.src.markitdown -> packages.markitdown.src.markitdown.converters -> packages.markitdown.src.markitdown"
+        "packages.markitdown.src.markitdown.converters -> packages.markitdown.src.markitdown -> packages.markitdown.src.markitdown.converters"
       ],
       "packages_checked": 8,
       "packages_in_cycles": 2
@@ -97,22 +97,12 @@
       "finding_groups": []
     },
     {
-      "check_name": "component_cohesion",
-      "description": "Measures internal vs external edge ratio per component/cluster",
-      "check_type": "standard",
-      "total_entities_checked": 15,
-      "findings_count": 0,
-      "warning_count": 0,
-      "score": 1.0,
-      "finding_groups": []
-    },
-    {
       "check_name": "unused_code_diagnostics",
       "description": "Detects unused imports, variables, functions, and dead code via LSP diagnostics",
       "check_type": "standard",
-      "total_entities_checked": 118,
-      "findings_count": 118,
-      "warning_count": 9,
+      "total_entities_checked": 123,
+      "findings_count": 123,
+      "warning_count": 11,
       "score": 0.0,
       "finding_groups": [
         {
@@ -744,10 +734,38 @@
               "metric_value": 0.0
             },
             {
-              "entity_name": "[unused_variable] \"app\" is not accessed",
-              "file_path": "packages/markitdown-mcp/src/markitdown_mcp/__main__.py",
-              "line_start": 61,
-              "line_end": 61,
+              "entity_name": "[unused_variable] \"Union\" is not accessed",
+              "file_path": "packages/markitdown/src/markitdown/converters/_yaml_converter.py",
+              "line_start": 4,
+              "line_end": 4,
+              "metric_value": 0.0
+            },
+            {
+              "entity_name": "[unused_variable] \"_parse_yaml_frontmatter\" is not accessed",
+              "file_path": "packages/markitdown/src/markitdown/converters/_yaml_converter.py",
+              "line_start": 41,
+              "line_end": 41,
+              "metric_value": 0.0
+            },
+            {
+              "entity_name": "[unused_variable] \"file_stream\" is not accessed",
+              "file_path": "packages/markitdown/src/markitdown/converters/_yaml_converter.py",
+              "line_start": 17,
+              "line_end": 17,
+              "metric_value": 0.0
+            },
+            {
+              "entity_name": "[unused_variable] \"kwargs\" is not accessed",
+              "file_path": "packages/markitdown/src/markitdown/converters/_yaml_converter.py",
+              "line_start": 19,
+              "line_end": 19,
+              "metric_value": 0.0
+            },
+            {
+              "entity_name": "[unused_variable] \"kwargs\" is not accessed",
+              "file_path": "packages/markitdown/src/markitdown/converters/_yaml_converter.py",
+              "line_start": 28,
+              "line_end": 28,
               "metric_value": 0.0
             },
             {
@@ -924,6 +942,13 @@
               "line_start": 20,
               "line_end": 20,
               "metric_value": 0.0
+            },
+            {
+              "entity_name": "[unused_import] Import \"Union\" is not accessed",
+              "file_path": "packages/markitdown/src/markitdown/converters/_yaml_converter.py",
+              "line_start": 4,
+              "line_end": 4,
+              "metric_value": 0.0
             }
           ]
         },
@@ -945,6 +970,13 @@
               "line_start": 398,
               "line_end": 398,
               "metric_value": 0.0
+            },
+            {
+              "entity_name": "[unused_function] Function \"_parse_yaml_frontmatter\" is not accessed",
+              "file_path": "packages/markitdown/src/markitdown/converters/_yaml_converter.py",
+              "line_start": 41,
+              "line_end": 41,
+              "metric_value": 0.0
             }
           ]
         },
@@ -958,20 +990,6 @@
               "file_path": "packages/markitdown/src/markitdown/converters/_markdownify.py",
               "line_start": 8,
               "line_end": 8,
-              "metric_value": 0.0
-            }
-          ]
-        },
-        {
-          "severity": "info",
-          "threshold": 0,
-          "description": "Code that cannot be reached during execution",
-          "entities": [
-            {
-              "entity_name": "[unreachable_code] Type analysis indicates code is unreachable",
-              "file_path": "packages/markitdown-mcp/src/markitdown_mcp/__main__.py",
-              "line_start": 113,
-              "line_end": 113,
               "metric_value": 0.0
             }
           ]
@@ -995,6 +1013,12 @@
     {
       "file_path": "packages/markitdown/src/markitdown/converters/_xlsx_converter.py",
       "total_findings": 10,
+      "warning_findings": 2,
+      "composite_risk_score": 60.0
+    },
+    {
+      "file_path": "packages/markitdown/src/markitdown/converters/_yaml_converter.py",
+      "total_findings": 7,
       "warning_findings": 2,
       "composite_risk_score": 60.0
     },
@@ -1090,12 +1114,6 @@
     },
     {
       "file_path": "packages/markitdown-ocr/src/markitdown_ocr/_pptx_converter_with_ocr.py",
-      "total_findings": 3,
-      "warning_findings": 0,
-      "composite_risk_score": 30.0
-    },
-    {
-      "file_path": "packages/markitdown-ocr/src/markitdown_ocr/_xlsx_converter_with_ocr.py",
       "total_findings": 3,
       "warning_findings": 0,
       "composite_risk_score": 30.0

@@ -1,10 +1,9 @@
 {
   "version": 1,
-  "generated_at": "2026-04-20T05:46:16.301773+00:00",
+  "generated_at": "2026-05-24T05:58:27.830762+00:00",
   "analyzed_files": [
     "packages/markitdown-mcp/src/markitdown_mcp/__about__.py",
     "packages/markitdown-mcp/src/markitdown_mcp/__init__.py",
-    "packages/markitdown-mcp/src/markitdown_mcp/__main__.py",
     "packages/markitdown-ocr/src/markitdown_ocr/__about__.py",
     "packages/markitdown-ocr/src/markitdown_ocr/__init__.py",
     "packages/markitdown-ocr/src/markitdown_ocr/_docx_converter_with_ocr.py",
@@ -51,6 +50,7 @@
     "packages/markitdown/src/markitdown/converters/_transcribe_audio.py",
     "packages/markitdown/src/markitdown/converters/_wikipedia_converter.py",
     "packages/markitdown/src/markitdown/converters/_xlsx_converter.py",
+    "packages/markitdown/src/markitdown/converters/_yaml_converter.py",
     "packages/markitdown/src/markitdown/converters/_youtube_converter.py",
     "packages/markitdown/src/markitdown/converters/_zip_converter.py"
   ],

@@ -1,12 +1,12 @@
 {
   "metadata": {
-    "generated_at": "2026-04-20T06:07:09.131553+00:00",
-    "commit_hash": "",
+    "generated_at": "2026-05-24T05:58:27.829127+00:00",
+    "commit_hash": "1742dfd446a467e2a861e25d77dab9f7f9baf1c6",
     "repo_name": "markitdown",
     "depth_level": 2,
     "file_coverage_summary": {
       "total_files": 96,
-      "analyzed": 52,
+      "analyzed": 51,
       "not_analyzed": 45,
       "not_analyzed_by_reason": {
         "other": 15,
@@ -14,8 +14,16 @@
       }
     }
   },
-  "description": "The markitdown library is structured as a modular conversion pipeline that transforms various document formats into LLM-friendly Markdown. The architecture follows a Facade and Strategy pattern, where a central orchestrator (MarkItDown) manages a registry of specialized converters. Data flows from external interfaces (CLI, API, or MCP) through the core registry, which routes the input to the most appropriate converter\u2014ranging from standard text parsers to AI-powered OCR services and cloud-based document intelligence adapters\u2014finally producing a unified DocumentConverterResult.",
+  "description": "markitdown is a modular data ingestion pipeline designed to transform diverse file formats into LLM-ready Markdown using a Registry-Dispatch pattern. A central orchestrator manages specialized converters that process local documents, media via AI services, and complex structures like math or tables, ensuring a standardized output format.",
   "files": {
+    "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py": {
+      "method_keys": [
+        "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py|packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.register_converters",
+        "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py|packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.RtfConverter",
+        "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py|packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.RtfConverter.accepts",
+        "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py|packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.RtfConverter.convert"
+      ]
+    },
     "packages/markitdown/src/markitdown/__main__.py": {
       "method_keys": [
         "packages/markitdown/src/markitdown/__main__.py|packages.markitdown.src.markitdown.__main__.main",
@@ -137,14 +145,6 @@
         "packages/markitdown/src/markitdown/converters/_epub_converter.py|packages.markitdown.src.markitdown.converters._epub_converter.EpubConverter._get_all_texts_from_nodes"
       ]
     },
-    "packages/markitdown/src/markitdown/converters/_html_converter.py": {
-      "method_keys": [
-        "packages/markitdown/src/markitdown/converters/_html_converter.py|packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter",
-        "packages/markitdown/src/markitdown/converters/_html_converter.py|packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter.accepts",
-        "packages/markitdown/src/markitdown/converters/_html_converter.py|packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter.convert",
-        "packages/markitdown/src/markitdown/converters/_html_converter.py|packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter.convert_string"
-      ]
-    },
     "packages/markitdown/src/markitdown/converters/_image_converter.py": {
       "method_keys": [
         "packages/markitdown/src/markitdown/converters/_image_converter.py|packages.markitdown.src.markitdown.converters._image_converter.ImageConverter",
@@ -255,10 +255,12 @@
         "packages/markitdown/src/markitdown/converters/_zip_converter.py|packages.markitdown.src.markitdown.converters._zip_converter.ZipConverter.convert"
       ]
     },
-    "packages/markitdown/src/markitdown/converters/_exiftool.py": {
+    "packages/markitdown/src/markitdown/converters/_html_converter.py": {
       "method_keys": [
-        "packages/markitdown/src/markitdown/converters/_exiftool.py|packages.markitdown.src.markitdown.converters._exiftool._parse_version",
-        "packages/markitdown/src/markitdown/converters/_exiftool.py|packages.markitdown.src.markitdown.converters._exiftool.exiftool_metadata"
+        "packages/markitdown/src/markitdown/converters/_html_converter.py|packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter",
+        "packages/markitdown/src/markitdown/converters/_html_converter.py|packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter.accepts",
+        "packages/markitdown/src/markitdown/converters/_html_converter.py|packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter.convert",
+        "packages/markitdown/src/markitdown/converters/_html_converter.py|packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter.convert_string"
       ]
     },
     "packages/markitdown/src/markitdown/converters/_markdownify.py": {
@@ -272,9 +274,17 @@
         "packages/markitdown/src/markitdown/converters/_markdownify.py|packages.markitdown.src.markitdown.converters._markdownify._CustomMarkdownify.convert_soup"
       ]
     },
-    "packages/markitdown/src/markitdown/converters/_transcribe_audio.py": {
+    "packages/markitdown/src/markitdown/converters/_yaml_converter.py": {
       "method_keys": [
-        "packages/markitdown/src/markitdown/converters/_transcribe_audio.py|packages.markitdown.src.markitdown.converters._transcribe_audio.transcribe_audio"
+        "packages/markitdown/src/markitdown/converters/_yaml_converter.py|packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter",
+        "packages/markitdown/src/markitdown/converters/_yaml_converter.py|packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter.accepts",
+        "packages/markitdown/src/markitdown/converters/_yaml_converter.py|packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter.convert",
+        "packages/markitdown/src/markitdown/converters/_yaml_converter.py|packages.markitdown.src.markitdown.converters._yaml_converter._parse_yaml_frontmatter"
+      ]
+    },
+    "packages/markitdown/src/markitdown/converters/_llm_caption.py": {
+      "method_keys": [
+        "packages/markitdown/src/markitdown/converters/_llm_caption.py|packages.markitdown.src.markitdown.converters._llm_caption.llm_caption"
       ]
     },
     "packages/markitdown/src/markitdown/converter_utils/docx/math/omml.py": {
@@ -332,9 +342,15 @@
         "packages/markitdown/src/markitdown/converter_utils/docx/pre_process.py|packages.markitdown.src.markitdown.converter_utils.docx.pre_process.pre_process_docx"
       ]
     },
-    "packages/markitdown/src/markitdown/converters/_llm_caption.py": {
+    "packages/markitdown/src/markitdown/converters/_exiftool.py": {
       "method_keys": [
-        "packages/markitdown/src/markitdown/converters/_llm_caption.py|packages.markitdown.src.markitdown.converters._llm_caption.llm_caption"
+        "packages/markitdown/src/markitdown/converters/_exiftool.py|packages.markitdown.src.markitdown.converters._exiftool._parse_version",
+        "packages/markitdown/src/markitdown/converters/_exiftool.py|packages.markitdown.src.markitdown.converters._exiftool.exiftool_metadata"
+      ]
+    },
+    "packages/markitdown/src/markitdown/converters/_transcribe_audio.py": {
+      "method_keys": [
+        "packages/markitdown/src/markitdown/converters/_transcribe_audio.py|packages.markitdown.src.markitdown.converters._transcribe_audio.transcribe_audio"
       ]
     },
     "packages/markitdown-ocr/src/markitdown_ocr/_docx_converter_with_ocr.py": {
@@ -396,25 +412,37 @@
         "packages/markitdown-ocr/src/markitdown_ocr/_xlsx_converter_with_ocr.py|packages.markitdown-ocr.src.markitdown_ocr._xlsx_converter_with_ocr.XlsxConverterWithOCR._extract_and_ocr_sheet_images",
         "packages/markitdown-ocr/src/markitdown_ocr/_xlsx_converter_with_ocr.py|packages.markitdown-ocr.src.markitdown_ocr._xlsx_converter_with_ocr.XlsxConverterWithOCR._column_number_to_letter"
       ]
-    },
-    "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py": {
-      "method_keys": [
-        "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py|packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.register_converters",
-        "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py|packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.RtfConverter",
-        "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py|packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.RtfConverter.accepts",
-        "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py|packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.RtfConverter.convert"
-      ]
-    },
-    "packages/markitdown/src/markitdown/converters/_yaml_converter.py": {
-      "method_keys": [
-        "packages/markitdown/src/markitdown/converters/_yaml_converter.py|packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter",
-        "packages/markitdown/src/markitdown/converters/_yaml_converter.py|packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter.accepts",
-        "packages/markitdown/src/markitdown/converters/_yaml_converter.py|packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter.convert",
-        "packages/markitdown/src/markitdown/converters/_yaml_converter.py|packages.markitdown.src.markitdown.converters._yaml_converter._parse_yaml_frontmatter"
-      ]
     }
   },
   "methods_index": {
+    "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py|packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.register_converters": {
+      "file_path": "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py",
+      "qualified_name": "packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.register_converters",
+      "start_line": 25,
+      "end_line": 31,
+      "type": "FUNCTION"
+    },
+    "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py|packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.RtfConverter": {
+      "file_path": "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py",
+      "qualified_name": "packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.RtfConverter",
+      "start_line": 34,
+      "end_line": 71,
+      "type": "CLASS"
+    },
+    "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py|packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.RtfConverter.accepts": {
+      "file_path": "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py",
+      "qualified_name": "packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.RtfConverter.accepts",
+      "start_line": 39,
+      "end_line": 55,
+      "type": "METHOD"
+    },
+    "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py|packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.RtfConverter.convert": {
+      "file_path": "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py",
+      "qualified_name": "packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.RtfConverter.convert",
+      "start_line": 57,
+      "end_line": 71,
+      "type": "METHOD"
+    },
     "packages/markitdown/src/markitdown/__main__.py|packages.markitdown.src.markitdown.__main__.main": {
       "file_path": "packages/markitdown/src/markitdown/__main__.py",
       "qualified_name": "packages.markitdown.src.markitdown.__main__.main",
@@ -926,34 +954,6 @@
       "end_line": 146,
       "type": "METHOD"
     },
-    "packages/markitdown/src/markitdown/converters/_html_converter.py|packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter": {
-      "file_path": "packages/markitdown/src/markitdown/converters/_html_converter.py",
-      "qualified_name": "packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter",
-      "start_line": 21,
-      "end_line": 110,
-      "type": "CLASS"
-    },
-    "packages/markitdown/src/markitdown/converters/_html_converter.py|packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter.accepts": {
-      "file_path": "packages/markitdown/src/markitdown/converters/_html_converter.py",
-      "qualified_name": "packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter.accepts",
-      "start_line": 24,
-      "end_line": 40,
-      "type": "METHOD"
-    },
-    "packages/markitdown/src/markitdown/converters/_html_converter.py|packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter.convert": {
-      "file_path": "packages/markitdown/src/markitdown/converters/_html_converter.py",
-      "qualified_name": "packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter.convert",
-      "start_line": 42,
-      "end_line": 91,
-      "type": "METHOD"
-    },
-    "packages/markitdown/src/markitdown/converters/_html_converter.py|packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter.convert_string": {
-      "file_path": "packages/markitdown/src/markitdown/converters/_html_converter.py",
-      "qualified_name": "packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter.convert_string",
-      "start_line": 93,
-      "end_line": 110,
-      "type": "METHOD"
-    },
     "packages/markitdown/src/markitdown/converters/_image_converter.py|packages.markitdown.src.markitdown.converters._image_converter.ImageConverter": {
       "file_path": "packages/markitdown/src/markitdown/converters/_image_converter.py",
       "qualified_name": "packages.markitdown.src.markitdown.converters._image_converter.ImageConverter",
@@ -1105,13 +1105,13 @@
       "file_path": "packages/markitdown/src/markitdown/converters/_pdf_converter.py",
       "qualified_name": "packages.markitdown.src.markitdown.converters._pdf_converter.extract_tables_from_pdf",
       "start_line": 592,
-      "end_line": 625,
+      "end_line": 622,
       "type": "FUNCTION"
     },
     "packages/markitdown/src/markitdown/converters/_pdf_converter.py|packages.markitdown.src.markitdown.converters._pdf_converter._words_to_grid": {
       "file_path": "packages/markitdown/src/markitdown/converters/_pdf_converter.py",
       "qualified_name": "packages.markitdown.src.markitdown.converters._pdf_converter._words_to_grid",
-      "start_line": 628,
+      "start_line": 625,
       "end_line": 637,
       "type": "FUNCTION"
     },
@@ -1416,19 +1416,33 @@
       "end_line": 116,
       "type": "METHOD"
     },
-    "packages/markitdown/src/markitdown/converters/_exiftool.py|packages.markitdown.src.markitdown.converters._exiftool._parse_version": {
-      "file_path": "packages/markitdown/src/markitdown/converters/_exiftool.py",
-      "qualified_name": "packages.markitdown.src.markitdown.converters._exiftool._parse_version",
-      "start_line": 7,
-      "end_line": 8,
-      "type": "FUNCTION"
+    "packages/markitdown/src/markitdown/converters/_html_converter.py|packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter": {
+      "file_path": "packages/markitdown/src/markitdown/converters/_html_converter.py",
+      "qualified_name": "packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter",
+      "start_line": 21,
+      "end_line": 110,
+      "type": "CLASS"
     },
-    "packages/markitdown/src/markitdown/converters/_exiftool.py|packages.markitdown.src.markitdown.converters._exiftool.exiftool_metadata": {
-      "file_path": "packages/markitdown/src/markitdown/converters/_exiftool.py",
-      "qualified_name": "packages.markitdown.src.markitdown.converters._exiftool.exiftool_metadata",
-      "start_line": 11,
-      "end_line": 52,
-      "type": "FUNCTION"
+    "packages/markitdown/src/markitdown/converters/_html_converter.py|packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter.accepts": {
+      "file_path": "packages/markitdown/src/markitdown/converters/_html_converter.py",
+      "qualified_name": "packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter.accepts",
+      "start_line": 24,
+      "end_line": 40,
+      "type": "METHOD"
+    },
+    "packages/markitdown/src/markitdown/converters/_html_converter.py|packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter.convert": {
+      "file_path": "packages/markitdown/src/markitdown/converters/_html_converter.py",
+      "qualified_name": "packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter.convert",
+      "start_line": 42,
+      "end_line": 91,
+      "type": "METHOD"
+    },
+    "packages/markitdown/src/markitdown/converters/_html_converter.py|packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter.convert_string": {
+      "file_path": "packages/markitdown/src/markitdown/converters/_html_converter.py",
+      "qualified_name": "packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter.convert_string",
+      "start_line": 93,
+      "end_line": 110,
+      "type": "METHOD"
     },
     "packages/markitdown/src/markitdown/converters/_markdownify.py|packages.markitdown.src.markitdown.converters._markdownify._CustomMarkdownify": {
       "file_path": "packages/markitdown/src/markitdown/converters/_markdownify.py",
@@ -1479,11 +1493,39 @@
       "end_line": 126,
       "type": "METHOD"
     },
-    "packages/markitdown/src/markitdown/converters/_transcribe_audio.py|packages.markitdown.src.markitdown.converters._transcribe_audio.transcribe_audio": {
-      "file_path": "packages/markitdown/src/markitdown/converters/_transcribe_audio.py",
-      "qualified_name": "packages.markitdown.src.markitdown.converters._transcribe_audio.transcribe_audio",
-      "start_line": 23,
-      "end_line": 49,
+    "packages/markitdown/src/markitdown/converters/_yaml_converter.py|packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter": {
+      "file_path": "packages/markitdown/src/markitdown/converters/_yaml_converter.py",
+      "qualified_name": "packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter",
+      "start_line": 10,
+      "end_line": 38,
+      "type": "CLASS"
+    },
+    "packages/markitdown/src/markitdown/converters/_yaml_converter.py|packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter.accepts": {
+      "file_path": "packages/markitdown/src/markitdown/converters/_yaml_converter.py",
+      "qualified_name": "packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter.accepts",
+      "start_line": 15,
+      "end_line": 22,
+      "type": "METHOD"
+    },
+    "packages/markitdown/src/markitdown/converters/_yaml_converter.py|packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter.convert": {
+      "file_path": "packages/markitdown/src/markitdown/converters/_yaml_converter.py",
+      "qualified_name": "packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter.convert",
+      "start_line": 24,
+      "end_line": 38,
+      "type": "METHOD"
+    },
+    "packages/markitdown/src/markitdown/converters/_yaml_converter.py|packages.markitdown.src.markitdown.converters._yaml_converter._parse_yaml_frontmatter": {
+      "file_path": "packages/markitdown/src/markitdown/converters/_yaml_converter.py",
+      "qualified_name": "packages.markitdown.src.markitdown.converters._yaml_converter._parse_yaml_frontmatter",
+      "start_line": 41,
+      "end_line": 52,
+      "type": "FUNCTION"
+    },
+    "packages/markitdown/src/markitdown/converters/_llm_caption.py|packages.markitdown.src.markitdown.converters._llm_caption.llm_caption": {
+      "file_path": "packages/markitdown/src/markitdown/converters/_llm_caption.py",
+      "qualified_name": "packages.markitdown.src.markitdown.converters._llm_caption.llm_caption",
+      "start_line": 7,
+      "end_line": 50,
       "type": "FUNCTION"
     },
     "packages/markitdown/src/markitdown/converter_utils/docx/math/omml.py|packages.markitdown.src.markitdown.converter_utils.docx.math.omml.load": {
@@ -1815,11 +1857,25 @@
       "end_line": 156,
       "type": "FUNCTION"
     },
-    "packages/markitdown/src/markitdown/converters/_llm_caption.py|packages.markitdown.src.markitdown.converters._llm_caption.llm_caption": {
-      "file_path": "packages/markitdown/src/markitdown/converters/_llm_caption.py",
-      "qualified_name": "packages.markitdown.src.markitdown.converters._llm_caption.llm_caption",
+    "packages/markitdown/src/markitdown/converters/_exiftool.py|packages.markitdown.src.markitdown.converters._exiftool._parse_version": {
+      "file_path": "packages/markitdown/src/markitdown/converters/_exiftool.py",
+      "qualified_name": "packages.markitdown.src.markitdown.converters._exiftool._parse_version",
       "start_line": 7,
-      "end_line": 50,
+      "end_line": 8,
+      "type": "FUNCTION"
+    },
+    "packages/markitdown/src/markitdown/converters/_exiftool.py|packages.markitdown.src.markitdown.converters._exiftool.exiftool_metadata": {
+      "file_path": "packages/markitdown/src/markitdown/converters/_exiftool.py",
+      "qualified_name": "packages.markitdown.src.markitdown.converters._exiftool.exiftool_metadata",
+      "start_line": 11,
+      "end_line": 52,
+      "type": "FUNCTION"
+    },
+    "packages/markitdown/src/markitdown/converters/_transcribe_audio.py|packages.markitdown.src.markitdown.converters._transcribe_audio.transcribe_audio": {
+      "file_path": "packages/markitdown/src/markitdown/converters/_transcribe_audio.py",
+      "qualified_name": "packages.markitdown.src.markitdown.converters._transcribe_audio.transcribe_audio",
+      "start_line": 23,
+      "end_line": 49,
       "type": "FUNCTION"
     },
     "packages/markitdown-ocr/src/markitdown_ocr/_docx_converter_with_ocr.py|packages.markitdown-ocr.src.markitdown_ocr._docx_converter_with_ocr.DocxConverterWithOCR": {
@@ -2073,74 +2129,24 @@
       "start_line": 217,
       "end_line": 225,
       "type": "METHOD"
-    },
-    "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py|packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.register_converters": {
-      "file_path": "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py",
-      "qualified_name": "packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.register_converters",
-      "start_line": 25,
-      "end_line": 31,
-      "type": "FUNCTION"
-    },
-    "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py|packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.RtfConverter": {
-      "file_path": "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py",
-      "qualified_name": "packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.RtfConverter",
-      "start_line": 34,
-      "end_line": 71,
-      "type": "CLASS"
-    },
-    "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py|packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.RtfConverter.accepts": {
-      "file_path": "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py",
-      "qualified_name": "packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.RtfConverter.accepts",
-      "start_line": 39,
-      "end_line": 55,
-      "type": "METHOD"
-    },
-    "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py|packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.RtfConverter.convert": {
-      "file_path": "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py",
-      "qualified_name": "packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.RtfConverter.convert",
-      "start_line": 57,
-      "end_line": 71,
-      "type": "METHOD"
-    },
-    "packages/markitdown/src/markitdown/converters/_yaml_converter.py|packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter": {
-      "file_path": "packages/markitdown/src/markitdown/converters/_yaml_converter.py",
-      "qualified_name": "packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter",
-      "start_line": 10,
-      "end_line": 40,
-      "type": "CLASS"
-    },
-    "packages/markitdown/src/markitdown/converters/_yaml_converter.py|packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter.accepts": {
-      "file_path": "packages/markitdown/src/markitdown/converters/_yaml_converter.py",
-      "qualified_name": "packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter.accepts",
-      "start_line": 15,
-      "end_line": 22,
-      "type": "METHOD"
-    },
-    "packages/markitdown/src/markitdown/converters/_yaml_converter.py|packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter.convert": {
-      "file_path": "packages/markitdown/src/markitdown/converters/_yaml_converter.py",
-      "qualified_name": "packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter.convert",
-      "start_line": 24,
-      "end_line": 40,
-      "type": "METHOD"
-    },
-    "packages/markitdown/src/markitdown/converters/_yaml_converter.py|packages.markitdown.src.markitdown.converters._yaml_converter._parse_yaml_frontmatter": {
-      "file_path": "packages/markitdown/src/markitdown/converters/_yaml_converter.py",
-      "qualified_name": "packages.markitdown.src.markitdown.converters._yaml_converter._parse_yaml_frontmatter",
-      "start_line": 43,
-      "end_line": 52,
-      "type": "FUNCTION"
     }
   },
   "components": [
     {
-      "name": "Orchestration & Interface",
-      "description": "Acts as the primary entry point for users and external systems. It manages the high-level conversion lifecycle, handles CLI commands, and exposes the library via the Model Context Protocol (MCP). It is responsible for initializing the system, detecting file types via Magika, and loading plugins.",
+      "name": "Orchestration & Routing",
+      "description": "Acts as the primary interface and control plane, handling input normalization and dispatching tasks to specialized converters.",
       "key_entities": [
         {
           "qualified_name": "packages.markitdown.src.markitdown._markitdown.MarkItDown",
           "reference_file": "packages/markitdown/src/markitdown/_markitdown.py",
           "reference_start_line": 93,
           "reference_end_line": 783
+        },
+        {
+          "qualified_name": "packages.markitdown.src.markitdown._markitdown._load_plugins",
+          "reference_file": "packages/markitdown/src/markitdown/_markitdown.py",
+          "reference_start_line": 65,
+          "reference_end_line": 82
         },
         {
           "qualified_name": "packages.markitdown.src.markitdown.__main__.main",
@@ -2152,10 +2158,18 @@
       "source_cluster_ids": [
         2,
         4,
-        10,
-        14
+        17
       ],
       "file_methods": [
+        {
+          "file_path": "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py",
+          "methods": [
+            "packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.register_converters",
+            "packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.RtfConverter",
+            "packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.RtfConverter.accepts",
+            "packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.RtfConverter.convert"
+          ]
+        },
         {
           "file_path": "packages/markitdown/src/markitdown/__main__.py",
           "methods": [
@@ -2223,13 +2237,16 @@
         {
           "file_path": "packages/markitdown/src/markitdown/converters/_bing_serp_converter.py",
           "methods": [
-            "packages.markitdown.src.markitdown.converters._bing_serp_converter.BingSerpConverter"
+            "packages.markitdown.src.markitdown.converters._bing_serp_converter.BingSerpConverter",
+            "packages.markitdown.src.markitdown.converters._bing_serp_converter.BingSerpConverter.accepts"
           ]
         },
         {
           "file_path": "packages/markitdown/src/markitdown/converters/_csv_converter.py",
           "methods": [
-            "packages.markitdown.src.markitdown.converters._csv_converter.CsvConverter"
+            "packages.markitdown.src.markitdown.converters._csv_converter.CsvConverter",
+            "packages.markitdown.src.markitdown.converters._csv_converter.CsvConverter.__init__",
+            "packages.markitdown.src.markitdown.converters._csv_converter.CsvConverter.accepts"
           ]
         },
         {
@@ -2242,21 +2259,13 @@
           "file_path": "packages/markitdown/src/markitdown/converters/_docx_converter.py",
           "methods": [
             "packages.markitdown.src.markitdown.converters._docx_converter.DocxConverter",
-            "packages.markitdown.src.markitdown.converters._docx_converter.DocxConverter.__init__",
             "packages.markitdown.src.markitdown.converters._docx_converter.DocxConverter.accepts"
           ]
         },
         {
           "file_path": "packages/markitdown/src/markitdown/converters/_epub_converter.py",
           "methods": [
-            "packages.markitdown.src.markitdown.converters._epub_converter.EpubConverter",
-            "packages.markitdown.src.markitdown.converters._epub_converter.EpubConverter.__init__"
-          ]
-        },
-        {
-          "file_path": "packages/markitdown/src/markitdown/converters/_html_converter.py",
-          "methods": [
-            "packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter"
+            "packages.markitdown.src.markitdown.converters._epub_converter.EpubConverter"
           ]
         },
         {
@@ -2268,7 +2277,8 @@
         {
           "file_path": "packages/markitdown/src/markitdown/converters/_ipynb_converter.py",
           "methods": [
-            "packages.markitdown.src.markitdown.converters._ipynb_converter.IpynbConverter"
+            "packages.markitdown.src.markitdown.converters._ipynb_converter.IpynbConverter",
+            "packages.markitdown.src.markitdown.converters._ipynb_converter.IpynbConverter.accepts"
           ]
         },
         {
@@ -2281,52 +2291,51 @@
         {
           "file_path": "packages/markitdown/src/markitdown/converters/_pdf_converter.py",
           "methods": [
-            "packages.markitdown.src.markitdown.converters._pdf_converter._extract_tables_from_words",
-            "packages.markitdown.src.markitdown.converters._pdf_converter.PdfConverter",
-            "packages.markitdown.src.markitdown.converters._pdf_converter.PdfConverter.accepts"
+            "packages.markitdown.src.markitdown.converters._pdf_converter.PdfConverter"
           ]
         },
         {
           "file_path": "packages/markitdown/src/markitdown/converters/_plain_text_converter.py",
           "methods": [
-            "packages.markitdown.src.markitdown.converters._plain_text_converter.PlainTextConverter"
+            "packages.markitdown.src.markitdown.converters._plain_text_converter.PlainTextConverter",
+            "packages.markitdown.src.markitdown.converters._plain_text_converter.PlainTextConverter.accepts"
           ]
         },
         {
           "file_path": "packages/markitdown/src/markitdown/converters/_pptx_converter.py",
           "methods": [
             "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter",
-            "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter.__init__",
             "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter.accepts"
           ]
         },
         {
           "file_path": "packages/markitdown/src/markitdown/converters/_rss_converter.py",
           "methods": [
-            "packages.markitdown.src.markitdown.converters._rss_converter.RssConverter"
+            "packages.markitdown.src.markitdown.converters._rss_converter.RssConverter",
+            "packages.markitdown.src.markitdown.converters._rss_converter.RssConverter.__init__"
           ]
         },
         {
           "file_path": "packages/markitdown/src/markitdown/converters/_wikipedia_converter.py",
           "methods": [
-            "packages.markitdown.src.markitdown.converters._wikipedia_converter.WikipediaConverter"
+            "packages.markitdown.src.markitdown.converters._wikipedia_converter.WikipediaConverter",
+            "packages.markitdown.src.markitdown.converters._wikipedia_converter.WikipediaConverter.accepts"
           ]
         },
         {
           "file_path": "packages/markitdown/src/markitdown/converters/_xlsx_converter.py",
           "methods": [
             "packages.markitdown.src.markitdown.converters._xlsx_converter.XlsxConverter",
-            "packages.markitdown.src.markitdown.converters._xlsx_converter.XlsxConverter.__init__",
             "packages.markitdown.src.markitdown.converters._xlsx_converter.XlsxConverter.accepts",
             "packages.markitdown.src.markitdown.converters._xlsx_converter.XlsConverter",
-            "packages.markitdown.src.markitdown.converters._xlsx_converter.XlsConverter.__init__",
             "packages.markitdown.src.markitdown.converters._xlsx_converter.XlsConverter.accepts"
           ]
         },
         {
           "file_path": "packages/markitdown/src/markitdown/converters/_youtube_converter.py",
           "methods": [
-            "packages.markitdown.src.markitdown.converters._youtube_converter.YouTubeConverter"
+            "packages.markitdown.src.markitdown.converters._youtube_converter.YouTubeConverter",
+            "packages.markitdown.src.markitdown.converters._youtube_converter.YouTubeConverter.accepts"
           ]
         },
         {
@@ -2343,9 +2352,15 @@
       "can_expand": true,
       "components": [
         {
-          "name": "Conversion Orchestrator & API",
-          "description": "This component acts as the primary engine and public interface for the library. It manages the conversion flow by wrapping inputs into StreamInfo objects, detecting MIME types, and iterating through registered converters to find the most suitable handler. It provides the high-level convert methods used by developers and the CLI.",
+          "name": "Core Orchestrator (MarkItDown)",
+          "description": "The central hub that manages the conversion lifecycle. It maintains a registry of converters, performs input normalization (handling streams and charsets), and implements the routing logic to dispatch tasks to the appropriate converter based on file extension or MIME type.",
           "key_entities": [
+            {
+              "qualified_name": "packages.markitdown.src.markitdown._markitdown.MarkItDown",
+              "reference_file": "packages/markitdown/src/markitdown/_markitdown.py",
+              "reference_start_line": 93,
+              "reference_end_line": 783
+            },
             {
               "qualified_name": "packages.markitdown.src.markitdown._markitdown.MarkItDown.convert",
               "reference_file": "packages/markitdown/src/markitdown/_markitdown.py",
@@ -2353,37 +2368,22 @@
               "reference_end_line": 300
             },
             {
-              "qualified_name": "packages.markitdown.src.markitdown._markitdown.MarkItDown._convert",
+              "qualified_name": "packages.markitdown.src.markitdown._markitdown.MarkItDown.register_converter",
               "reference_file": "packages/markitdown/src/markitdown/_markitdown.py",
-              "reference_start_line": 538,
-              "reference_end_line": 631
+              "reference_start_line": 641,
+              "reference_end_line": 671
             },
             {
-              "qualified_name": "packages.markitdown.src.markitdown.__main__.main",
-              "reference_file": "packages/markitdown/src/markitdown/__main__.py",
-              "reference_start_line": 13,
-              "reference_end_line": 200
-            },
-            {
-              "qualified_name": "packages.markitdown.src.markitdown._stream_info.StreamInfo",
-              "reference_file": "packages/markitdown/src/markitdown/_stream_info.py",
-              "reference_start_line": 6,
-              "reference_end_line": 32
+              "qualified_name": "packages.markitdown.src.markitdown._base_converter.DocumentConverter",
+              "reference_file": "packages/markitdown/src/markitdown/_base_converter.py",
+              "reference_start_line": 42,
+              "reference_end_line": 105
             }
           ],
           "source_cluster_ids": [
-            2,
-            4
+            1
           ],
           "file_methods": [
-            {
-              "file_path": "packages/markitdown/src/markitdown/__main__.py",
-              "methods": [
-                "packages.markitdown.src.markitdown.__main__.main",
-                "packages.markitdown.src.markitdown.__main__._handle_output",
-                "packages.markitdown.src.markitdown.__main__._exit_with_error"
-              ]
-            },
             {
               "file_path": "packages/markitdown/src/markitdown/_base_converter.py",
               "methods": [
@@ -2401,7 +2401,9 @@
             {
               "file_path": "packages/markitdown/src/markitdown/_markitdown.py",
               "methods": [
-                "packages.markitdown.src.markitdown._markitdown.MarkItDown",
+                "packages.markitdown.src.markitdown._markitdown.MarkItDown.__init__",
+                "packages.markitdown.src.markitdown._markitdown.MarkItDown.enable_builtins",
+                "packages.markitdown.src.markitdown._markitdown.MarkItDown.enable_plugins",
                 "packages.markitdown.src.markitdown._markitdown.MarkItDown.convert",
                 "packages.markitdown.src.markitdown._markitdown.MarkItDown.convert_local",
                 "packages.markitdown.src.markitdown._markitdown.MarkItDown.convert_stream",
@@ -2409,15 +2411,10 @@
                 "packages.markitdown.src.markitdown._markitdown.MarkItDown.convert_uri",
                 "packages.markitdown.src.markitdown._markitdown.MarkItDown.convert_response",
                 "packages.markitdown.src.markitdown._markitdown.MarkItDown._convert",
+                "packages.markitdown.src.markitdown._markitdown.MarkItDown.register_page_converter",
+                "packages.markitdown.src.markitdown._markitdown.MarkItDown.register_converter",
                 "packages.markitdown.src.markitdown._markitdown.MarkItDown._get_stream_info_guesses",
                 "packages.markitdown.src.markitdown._markitdown.MarkItDown._normalize_charset"
-              ]
-            },
-            {
-              "file_path": "packages/markitdown/src/markitdown/_stream_info.py",
-              "methods": [
-                "packages.markitdown.src.markitdown._stream_info.StreamInfo",
-                "packages.markitdown.src.markitdown._stream_info.StreamInfo.copy_and_update"
               ]
             },
             {
@@ -2425,64 +2422,6 @@
               "methods": [
                 "packages.markitdown.src.markitdown._uri_utils.file_uri_to_path",
                 "packages.markitdown.src.markitdown._uri_utils.parse_data_uri"
-              ]
-            },
-            {
-              "file_path": "packages/markitdown/src/markitdown/converters/_zip_converter.py",
-              "methods": [
-                "packages.markitdown.src.markitdown.converters._zip_converter.ZipConverter.convert"
-              ]
-            }
-          ],
-          "component_id": "1.1",
-          "can_expand": true
-        },
-        {
-          "name": "Registry & Plugin Manager",
-          "description": "Responsible for the \"Setup\" phase, this component handles the instantiation of the MarkItDown object, the registration of built-in converters (e.g., PDF, Docx, Audio), and the dynamic discovery of external plugins. It maintains the internal mapping between file types and their corresponding converter implementations.",
-          "key_entities": [
-            {
-              "qualified_name": "packages.markitdown.src.markitdown._markitdown.MarkItDown.__init__",
-              "reference_file": "packages/markitdown/src/markitdown/_markitdown.py",
-              "reference_start_line": 97,
-              "reference_end_line": 138
-            },
-            {
-              "qualified_name": "packages.markitdown.src.markitdown._markitdown.MarkItDown.register_converter",
-              "reference_file": "packages/markitdown/src/markitdown/_markitdown.py",
-              "reference_start_line": 641,
-              "reference_end_line": 671
-            },
-            {
-              "qualified_name": "packages.markitdown.src.markitdown._markitdown.MarkItDown.enable_builtins",
-              "reference_file": "packages/markitdown/src/markitdown/_markitdown.py",
-              "reference_start_line": 140,
-              "reference_end_line": 230
-            },
-            {
-              "qualified_name": "packages.markitdown.src.markitdown._markitdown.MarkItDown._load_plugins",
-              "reference_file": "packages/markitdown/src/markitdown/_markitdown.py",
-              "reference_start_line": 0,
-              "reference_end_line": 0
-            }
-          ],
-          "source_cluster_ids": [
-            1,
-            3,
-            6,
-            7
-          ],
-          "file_methods": [
-            {
-              "file_path": "packages/markitdown/src/markitdown/_markitdown.py",
-              "methods": [
-                "packages.markitdown.src.markitdown._markitdown._load_plugins",
-                "packages.markitdown.src.markitdown._markitdown.ConverterRegistration",
-                "packages.markitdown.src.markitdown._markitdown.MarkItDown.__init__",
-                "packages.markitdown.src.markitdown._markitdown.MarkItDown.enable_builtins",
-                "packages.markitdown.src.markitdown._markitdown.MarkItDown.enable_plugins",
-                "packages.markitdown.src.markitdown._markitdown.MarkItDown.register_page_converter",
-                "packages.markitdown.src.markitdown._markitdown.MarkItDown.register_converter"
               ]
             },
             {
@@ -2494,7 +2433,8 @@
             {
               "file_path": "packages/markitdown/src/markitdown/converters/_bing_serp_converter.py",
               "methods": [
-                "packages.markitdown.src.markitdown.converters._bing_serp_converter.BingSerpConverter"
+                "packages.markitdown.src.markitdown.converters._bing_serp_converter.BingSerpConverter",
+                "packages.markitdown.src.markitdown.converters._bing_serp_converter.BingSerpConverter.accepts"
               ]
             },
             {
@@ -2513,21 +2453,13 @@
               "file_path": "packages/markitdown/src/markitdown/converters/_docx_converter.py",
               "methods": [
                 "packages.markitdown.src.markitdown.converters._docx_converter.DocxConverter",
-                "packages.markitdown.src.markitdown.converters._docx_converter.DocxConverter.__init__",
                 "packages.markitdown.src.markitdown.converters._docx_converter.DocxConverter.accepts"
               ]
             },
             {
               "file_path": "packages/markitdown/src/markitdown/converters/_epub_converter.py",
               "methods": [
-                "packages.markitdown.src.markitdown.converters._epub_converter.EpubConverter",
-                "packages.markitdown.src.markitdown.converters._epub_converter.EpubConverter.__init__"
-              ]
-            },
-            {
-              "file_path": "packages/markitdown/src/markitdown/converters/_html_converter.py",
-              "methods": [
-                "packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter"
+                "packages.markitdown.src.markitdown.converters._epub_converter.EpubConverter"
               ]
             },
             {
@@ -2539,7 +2471,8 @@
             {
               "file_path": "packages/markitdown/src/markitdown/converters/_ipynb_converter.py",
               "methods": [
-                "packages.markitdown.src.markitdown.converters._ipynb_converter.IpynbConverter"
+                "packages.markitdown.src.markitdown.converters._ipynb_converter.IpynbConverter",
+                "packages.markitdown.src.markitdown.converters._ipynb_converter.IpynbConverter.accepts"
               ]
             },
             {
@@ -2552,98 +2485,206 @@
             {
               "file_path": "packages/markitdown/src/markitdown/converters/_pdf_converter.py",
               "methods": [
-                "packages.markitdown.src.markitdown.converters._pdf_converter._extract_tables_from_words",
-                "packages.markitdown.src.markitdown.converters._pdf_converter.PdfConverter",
-                "packages.markitdown.src.markitdown.converters._pdf_converter.PdfConverter.accepts"
+                "packages.markitdown.src.markitdown.converters._pdf_converter.PdfConverter"
               ]
             },
             {
               "file_path": "packages/markitdown/src/markitdown/converters/_plain_text_converter.py",
               "methods": [
-                "packages.markitdown.src.markitdown.converters._plain_text_converter.PlainTextConverter"
+                "packages.markitdown.src.markitdown.converters._plain_text_converter.PlainTextConverter",
+                "packages.markitdown.src.markitdown.converters._plain_text_converter.PlainTextConverter.accepts"
               ]
             },
             {
               "file_path": "packages/markitdown/src/markitdown/converters/_pptx_converter.py",
               "methods": [
                 "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter",
-                "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter.__init__",
                 "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter.accepts"
               ]
             },
             {
               "file_path": "packages/markitdown/src/markitdown/converters/_rss_converter.py",
               "methods": [
-                "packages.markitdown.src.markitdown.converters._rss_converter.RssConverter"
+                "packages.markitdown.src.markitdown.converters._rss_converter.RssConverter",
+                "packages.markitdown.src.markitdown.converters._rss_converter.RssConverter.__init__"
               ]
             },
             {
               "file_path": "packages/markitdown/src/markitdown/converters/_wikipedia_converter.py",
               "methods": [
-                "packages.markitdown.src.markitdown.converters._wikipedia_converter.WikipediaConverter"
+                "packages.markitdown.src.markitdown.converters._wikipedia_converter.WikipediaConverter",
+                "packages.markitdown.src.markitdown.converters._wikipedia_converter.WikipediaConverter.accepts"
               ]
             },
             {
               "file_path": "packages/markitdown/src/markitdown/converters/_xlsx_converter.py",
               "methods": [
                 "packages.markitdown.src.markitdown.converters._xlsx_converter.XlsxConverter",
-                "packages.markitdown.src.markitdown.converters._xlsx_converter.XlsxConverter.__init__",
                 "packages.markitdown.src.markitdown.converters._xlsx_converter.XlsxConverter.accepts",
                 "packages.markitdown.src.markitdown.converters._xlsx_converter.XlsConverter",
-                "packages.markitdown.src.markitdown.converters._xlsx_converter.XlsConverter.__init__",
                 "packages.markitdown.src.markitdown.converters._xlsx_converter.XlsConverter.accepts"
               ]
             },
             {
               "file_path": "packages/markitdown/src/markitdown/converters/_youtube_converter.py",
               "methods": [
-                "packages.markitdown.src.markitdown.converters._youtube_converter.YouTubeConverter"
+                "packages.markitdown.src.markitdown.converters._youtube_converter.YouTubeConverter",
+                "packages.markitdown.src.markitdown.converters._youtube_converter.YouTubeConverter.accepts"
               ]
             },
             {
               "file_path": "packages/markitdown/src/markitdown/converters/_zip_converter.py",
               "methods": [
-                "packages.markitdown.src.markitdown.converters._zip_converter.ZipConverter",
+                "packages.markitdown.src.markitdown.converters._zip_converter.ZipConverter"
+              ]
+            }
+          ],
+          "component_id": "1.1",
+          "can_expand": true
+        },
+        {
+          "name": "Interface & Extension Layer",
+          "description": "Handles the external boundaries of the subsystem. It includes the CLI entry point for user interaction and the plugin discovery mechanism that dynamically extends the orchestrator's capabilities at runtime using entry points.",
+          "key_entities": [
+            {
+              "qualified_name": "packages.markitdown.src.markitdown.__main__.main",
+              "reference_file": "packages/markitdown/src/markitdown/__main__.py",
+              "reference_start_line": 13,
+              "reference_end_line": 200
+            },
+            {
+              "qualified_name": "packages.markitdown.src.markitdown._markitdown._load_plugins",
+              "reference_file": "packages/markitdown/src/markitdown/_markitdown.py",
+              "reference_start_line": 65,
+              "reference_end_line": 82
+            },
+            {
+              "qualified_name": "packages.markitdown.src.markitdown._stream_info.StreamInfo",
+              "reference_file": "packages/markitdown/src/markitdown/_stream_info.py",
+              "reference_start_line": 6,
+              "reference_end_line": 32
+            }
+          ],
+          "source_cluster_ids": [
+            2
+          ],
+          "file_methods": [
+            {
+              "file_path": "packages/markitdown/src/markitdown/__main__.py",
+              "methods": [
+                "packages.markitdown.src.markitdown.__main__.main",
+                "packages.markitdown.src.markitdown.__main__._handle_output",
+                "packages.markitdown.src.markitdown.__main__._exit_with_error"
+              ]
+            },
+            {
+              "file_path": "packages/markitdown/src/markitdown/_markitdown.py",
+              "methods": [
+                "packages.markitdown.src.markitdown._markitdown._load_plugins",
+                "packages.markitdown.src.markitdown._markitdown.ConverterRegistration",
+                "packages.markitdown.src.markitdown._markitdown.MarkItDown"
+              ]
+            },
+            {
+              "file_path": "packages/markitdown/src/markitdown/_stream_info.py",
+              "methods": [
+                "packages.markitdown.src.markitdown._stream_info.StreamInfo",
+                "packages.markitdown.src.markitdown._stream_info.StreamInfo.copy_and_update"
+              ]
+            },
+            {
+              "file_path": "packages/markitdown/src/markitdown/converters/_zip_converter.py",
+              "methods": [
                 "packages.markitdown.src.markitdown.converters._zip_converter.ZipConverter.__init__",
-                "packages.markitdown.src.markitdown.converters._zip_converter.ZipConverter.accepts"
+                "packages.markitdown.src.markitdown.converters._zip_converter.ZipConverter.accepts",
+                "packages.markitdown.src.markitdown.converters._zip_converter.ZipConverter.convert"
               ]
             }
           ],
           "component_id": "1.2",
           "can_expand": true
+        },
+        {
+          "name": "Conversion Strategy Implementations",
+          "description": "The \"leaf nodes\" of the orchestration tree. These are the specialized workers that implement the DocumentConverter interface. While the orchestrator routes the data, these components perform the actual format-specific parsing (e.g., CSV to Markdown).",
+          "key_entities": [
+            {
+              "qualified_name": "packages.markitdown.src.markitdown.converters._csv_converter.CsvConverter",
+              "reference_file": "packages/markitdown/src/markitdown/converters/_csv_converter.py",
+              "reference_start_line": 15,
+              "reference_end_line": 77
+            }
+          ],
+          "source_cluster_ids": [
+            3,
+            4,
+            5
+          ],
+          "file_methods": [
+            {
+              "file_path": "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py",
+              "methods": [
+                "packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.register_converters",
+                "packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.RtfConverter",
+                "packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.RtfConverter.accepts",
+                "packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.RtfConverter.convert"
+              ]
+            },
+            {
+              "file_path": "packages/markitdown/src/markitdown/converters/_csv_converter.py",
+              "methods": [
+                "packages.markitdown.src.markitdown.converters._csv_converter.CsvConverter.__init__",
+                "packages.markitdown.src.markitdown.converters._csv_converter.CsvConverter.accepts"
+              ]
+            }
+          ],
+          "component_id": "1.3",
+          "can_expand": true
         }
       ],
       "components_relations": [
         {
-          "relation": "Populates the internal converter registry that the orchestrator queries during the conversion process.",
-          "src_name": "Registry & Plugin Manager",
-          "dst_name": "Conversion Orchestrator & API",
+          "relation": "Initializes orchestrator and invokes conversion; populates registry via plugin loader.",
+          "src_name": "Interface & Extension Layer",
+          "dst_name": "Core Orchestrator (MarkItDown)",
           "src_id": "1.2",
+          "dst_id": "1.1",
+          "edge_count": 3,
+          "is_static": true
+        },
+        {
+          "relation": "Iterates through registered converters to determine compatibility and execute transformation.",
+          "src_name": "Core Orchestrator (MarkItDown)",
+          "dst_name": "Conversion Strategy Implementations",
+          "src_id": "1.1",
+          "dst_id": "1.3",
+          "edge_count": 0,
+          "is_static": false
+        },
+        {
+          "relation": "Calls back into orchestrator to handle nested content or recursive conversions.",
+          "src_name": "Conversion Strategy Implementations",
+          "dst_name": "Core Orchestrator (MarkItDown)",
+          "src_id": "1.3",
           "dst_id": "1.1",
           "edge_count": 0,
           "is_static": false
         },
         {
-          "relation": "Queries the registry to identify and retrieve the appropriate DocumentConverter for a given file type.",
-          "src_name": "Conversion Orchestrator & API",
-          "dst_name": "Registry & Plugin Manager",
+          "relation": "calls",
+          "src_name": "Core Orchestrator (MarkItDown)",
+          "dst_name": "Interface & Extension Layer",
           "src_id": "1.1",
           "dst_id": "1.2",
-          "edge_count": 0,
-          "is_static": false
+          "edge_count": 13,
+          "is_static": true
         }
       ]
     },
     {
-      "name": "Core Conversion Logic",
-      "description": "The central hub of the library. It maintains the registry of available converters and defines the standard data model for all conversion outputs. It routes incoming data to the most appropriate converter based on file type and priority, ensuring a consistent output format regardless of the source.",
+      "name": "Conversion Schema & Base Logic",
+      "description": "Defines fundamental contracts and data structures, ensuring standardized output across all converter types.",
       "key_entities": [
-        {
-          "qualified_name": "packages.markitdown.src.markitdown._base_converter.DocumentConverterResult",
-          "reference_file": "packages/markitdown/src/markitdown/_base_converter.py",
-          "reference_start_line": 5,
-          "reference_end_line": 39
-        },
         {
           "qualified_name": "packages.markitdown.src.markitdown._base_converter.DocumentConverter",
           "reference_file": "packages/markitdown/src/markitdown/_base_converter.py",
@@ -2651,14 +2692,20 @@
           "reference_end_line": 105
         },
         {
-          "qualified_name": "packages.markitdown.src.markitdown._markitdown.ConverterRegistration",
-          "reference_file": "packages/markitdown/src/markitdown/_markitdown.py",
-          "reference_start_line": 86,
-          "reference_end_line": 90
+          "qualified_name": "packages.markitdown.src.markitdown._base_converter.DocumentConverterResult",
+          "reference_file": "packages/markitdown/src/markitdown/_base_converter.py",
+          "reference_start_line": 5,
+          "reference_end_line": 39
+        },
+        {
+          "qualified_name": "packages.markitdown.src.markitdown.converters._rss_converter.RssConverter",
+          "reference_file": "packages/markitdown/src/markitdown/converters/_rss_converter.py",
+          "reference_start_line": 29,
+          "reference_end_line": 192
         }
       ],
       "source_cluster_ids": [
-        1
+        3
       ],
       "file_methods": [
         {
@@ -2681,62 +2728,34 @@
           ]
         },
         {
-          "file_path": "packages/markitdown/src/markitdown/converters/_audio_converter.py",
-          "methods": [
-            "packages.markitdown.src.markitdown.converters._audio_converter.AudioConverter.accepts",
-            "packages.markitdown.src.markitdown.converters._audio_converter.AudioConverter.convert"
-          ]
-        },
-        {
           "file_path": "packages/markitdown/src/markitdown/converters/_bing_serp_converter.py",
           "methods": [
-            "packages.markitdown.src.markitdown.converters._bing_serp_converter.BingSerpConverter.accepts",
             "packages.markitdown.src.markitdown.converters._bing_serp_converter.BingSerpConverter.convert"
           ]
         },
         {
           "file_path": "packages/markitdown/src/markitdown/converters/_csv_converter.py",
           "methods": [
-            "packages.markitdown.src.markitdown.converters._csv_converter.CsvConverter.__init__",
-            "packages.markitdown.src.markitdown.converters._csv_converter.CsvConverter.accepts",
             "packages.markitdown.src.markitdown.converters._csv_converter.CsvConverter.convert"
           ]
         },
         {
           "file_path": "packages/markitdown/src/markitdown/converters/_epub_converter.py",
           "methods": [
-            "packages.markitdown.src.markitdown.converters._epub_converter.EpubConverter.accepts",
             "packages.markitdown.src.markitdown.converters._epub_converter.EpubConverter.convert",
             "packages.markitdown.src.markitdown.converters._epub_converter.EpubConverter._get_text_from_node",
             "packages.markitdown.src.markitdown.converters._epub_converter.EpubConverter._get_all_texts_from_nodes"
           ]
         },
         {
-          "file_path": "packages/markitdown/src/markitdown/converters/_exiftool.py",
-          "methods": [
-            "packages.markitdown.src.markitdown.converters._exiftool._parse_version",
-            "packages.markitdown.src.markitdown.converters._exiftool.exiftool_metadata"
-          ]
-        },
-        {
           "file_path": "packages/markitdown/src/markitdown/converters/_html_converter.py",
           "methods": [
-            "packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter.accepts",
             "packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter.convert"
-          ]
-        },
-        {
-          "file_path": "packages/markitdown/src/markitdown/converters/_image_converter.py",
-          "methods": [
-            "packages.markitdown.src.markitdown.converters._image_converter.ImageConverter.accepts",
-            "packages.markitdown.src.markitdown.converters._image_converter.ImageConverter.convert",
-            "packages.markitdown.src.markitdown.converters._image_converter.ImageConverter._get_llm_description"
           ]
         },
         {
           "file_path": "packages/markitdown/src/markitdown/converters/_ipynb_converter.py",
           "methods": [
-            "packages.markitdown.src.markitdown.converters._ipynb_converter.IpynbConverter.accepts",
             "packages.markitdown.src.markitdown.converters._ipynb_converter.IpynbConverter.convert",
             "packages.markitdown.src.markitdown.converters._ipynb_converter.IpynbConverter._convert"
           ]
@@ -2756,14 +2775,12 @@
         {
           "file_path": "packages/markitdown/src/markitdown/converters/_plain_text_converter.py",
           "methods": [
-            "packages.markitdown.src.markitdown.converters._plain_text_converter.PlainTextConverter.accepts",
             "packages.markitdown.src.markitdown.converters._plain_text_converter.PlainTextConverter.convert"
           ]
         },
         {
           "file_path": "packages/markitdown/src/markitdown/converters/_rss_converter.py",
           "methods": [
-            "packages.markitdown.src.markitdown.converters._rss_converter.RssConverter.__init__",
             "packages.markitdown.src.markitdown.converters._rss_converter.RssConverter.accepts",
             "packages.markitdown.src.markitdown.converters._rss_converter.RssConverter._check_xml",
             "packages.markitdown.src.markitdown.converters._rss_converter.RssConverter._feed_type",
@@ -2775,26 +2792,18 @@
           ]
         },
         {
-          "file_path": "packages/markitdown/src/markitdown/converters/_transcribe_audio.py",
-          "methods": [
-            "packages.markitdown.src.markitdown.converters._transcribe_audio.transcribe_audio"
-          ]
-        },
-        {
           "file_path": "packages/markitdown/src/markitdown/converters/_wikipedia_converter.py",
           "methods": [
-            "packages.markitdown.src.markitdown.converters._wikipedia_converter.WikipediaConverter.accepts",
             "packages.markitdown.src.markitdown.converters._wikipedia_converter.WikipediaConverter.convert"
           ]
         },
         {
-          "file_path": "packages/markitdown/src/markitdown/converters/_youtube_converter.py",
+          "file_path": "packages/markitdown/src/markitdown/converters/_yaml_converter.py",
           "methods": [
-            "packages.markitdown.src.markitdown.converters._youtube_converter.YouTubeConverter.accepts",
-            "packages.markitdown.src.markitdown.converters._youtube_converter.YouTubeConverter.convert",
-            "packages.markitdown.src.markitdown.converters._youtube_converter.YouTubeConverter._get",
-            "packages.markitdown.src.markitdown.converters._youtube_converter.YouTubeConverter._findKey",
-            "packages.markitdown.src.markitdown.converters._youtube_converter.YouTubeConverter._retry_operation"
+            "packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter",
+            "packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter.accepts",
+            "packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter.convert",
+            "packages.markitdown.src.markitdown.converters._yaml_converter._parse_yaml_frontmatter"
           ]
         }
       ],
@@ -2802,23 +2811,30 @@
       "can_expand": true,
       "components": [
         {
-          "name": "Core Abstractions & Models",
-          "description": "Defines the foundational contracts and data structures that ensure interoperability across the library. It establishes the DocumentConverter interface that all specialized handlers must implement and the DocumentConverterResult which standardizes the output format.",
+          "name": "Core Conversion Framework",
+          "description": "Defines the fundamental abstract base classes and data models that enforce consistency across the entire library, acting as the contract layer for all specific converters.",
           "key_entities": [
+            {
+              "qualified_name": "packages.markitdown.src.markitdown._base_converter.DocumentConverter",
+              "reference_file": "packages/markitdown/src/markitdown/_base_converter.py",
+              "reference_start_line": 42,
+              "reference_end_line": 105
+            },
             {
               "qualified_name": "packages.markitdown.src.markitdown._base_converter.DocumentConverterResult",
               "reference_file": "packages/markitdown/src/markitdown/_base_converter.py",
               "reference_start_line": 5,
               "reference_end_line": 39
+            },
+            {
+              "qualified_name": "packages.markitdown.src.markitdown.converters._plain_text_converter.PlainTextConverter",
+              "reference_file": "packages/markitdown/src/markitdown/converters/_plain_text_converter.py",
+              "reference_start_line": 33,
+              "reference_end_line": 71
             }
           ],
           "source_cluster_ids": [
-            0,
-            1,
-            2,
-            3,
-            4,
-            5
+            2
           ],
           "file_methods": [
             {
@@ -2832,18 +2848,22 @@
               ]
             },
             {
-              "file_path": "packages/markitdown/src/markitdown/_exceptions.py",
+              "file_path": "packages/markitdown/src/markitdown/converters/_csv_converter.py",
               "methods": [
-                "packages.markitdown.src.markitdown._exceptions.MarkItDownException",
-                "packages.markitdown.src.markitdown._exceptions.FailedConversionAttempt.__init__",
-                "packages.markitdown.src.markitdown._exceptions.FileConversionException",
-                "packages.markitdown.src.markitdown._exceptions.FileConversionException.__init__"
+                "packages.markitdown.src.markitdown.converters._csv_converter.CsvConverter.convert"
               ]
             },
             {
-              "file_path": "packages/markitdown/src/markitdown/converters/_audio_converter.py",
+              "file_path": "packages/markitdown/src/markitdown/converters/_plain_text_converter.py",
               "methods": [
-                "packages.markitdown.src.markitdown.converters._audio_converter.AudioConverter.accepts"
+                "packages.markitdown.src.markitdown.converters._plain_text_converter.PlainTextConverter.convert"
+              ]
+            },
+            {
+              "file_path": "packages/markitdown/src/markitdown/converters/_yaml_converter.py",
+              "methods": [
+                "packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter.accepts",
+                "packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter.convert"
               ]
             }
           ],
@@ -2851,111 +2871,57 @@
           "can_expand": true
         },
         {
-          "name": "Registry & Plugin Manager",
-          "description": "Manages the lifecycle, discovery, and prioritization of converters. It provides the mechanism for internal registration and dynamically extends the library's capabilities by loading third-party converters via Python entry points.",
-          "key_entities": [],
+          "name": "Semantic Web & Feed Parsers",
+          "description": "Specialized implementations that handle complex, nested HTML and XML structures, focusing on extracting semantic meaning from web-native formats.",
+          "key_entities": [
+            {
+              "qualified_name": "packages.markitdown.src.markitdown.converters._rss_converter.RssConverter",
+              "reference_file": "packages/markitdown/src/markitdown/converters/_rss_converter.py",
+              "reference_start_line": 29,
+              "reference_end_line": 192
+            },
+            {
+              "qualified_name": "packages.markitdown.src.markitdown.converters._markdownify._CustomMarkdownify",
+              "reference_file": "packages/markitdown/src/markitdown/converters/_markdownify.py",
+              "reference_start_line": 8,
+              "reference_end_line": 126
+            },
+            {
+              "qualified_name": "packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter",
+              "reference_file": "packages/markitdown/src/markitdown/converters/_html_converter.py",
+              "reference_start_line": 21,
+              "reference_end_line": 110
+            },
+            {
+              "qualified_name": "packages.markitdown.src.markitdown.converters._bing_serp_converter.BingSerpConverter",
+              "reference_file": "packages/markitdown/src/markitdown/converters/_bing_serp_converter.py",
+              "reference_start_line": 23,
+              "reference_end_line": 120
+            }
+          ],
           "source_cluster_ids": [
-            6,
-            7,
-            8,
-            9,
-            10,
-            11,
-            12,
-            13,
-            14,
-            15
+            1,
+            4
           ],
           "file_methods": [
             {
-              "file_path": "packages/markitdown/src/markitdown/converters/_audio_converter.py",
-              "methods": [
-                "packages.markitdown.src.markitdown.converters._audio_converter.AudioConverter.convert"
-              ]
-            },
-            {
               "file_path": "packages/markitdown/src/markitdown/converters/_bing_serp_converter.py",
               "methods": [
-                "packages.markitdown.src.markitdown.converters._bing_serp_converter.BingSerpConverter.accepts",
                 "packages.markitdown.src.markitdown.converters._bing_serp_converter.BingSerpConverter.convert"
-              ]
-            },
-            {
-              "file_path": "packages/markitdown/src/markitdown/converters/_csv_converter.py",
-              "methods": [
-                "packages.markitdown.src.markitdown.converters._csv_converter.CsvConverter.__init__",
-                "packages.markitdown.src.markitdown.converters._csv_converter.CsvConverter.accepts",
-                "packages.markitdown.src.markitdown.converters._csv_converter.CsvConverter.convert"
               ]
             },
             {
               "file_path": "packages/markitdown/src/markitdown/converters/_epub_converter.py",
               "methods": [
-                "packages.markitdown.src.markitdown.converters._epub_converter.EpubConverter.accepts",
                 "packages.markitdown.src.markitdown.converters._epub_converter.EpubConverter.convert",
                 "packages.markitdown.src.markitdown.converters._epub_converter.EpubConverter._get_text_from_node",
                 "packages.markitdown.src.markitdown.converters._epub_converter.EpubConverter._get_all_texts_from_nodes"
-              ]
-            }
-          ],
-          "component_id": "2.2",
-          "can_expand": true
-        },
-        {
-          "name": "Conversion Orchestrator",
-          "description": "The primary routing engine that provides the public API for conversion. It normalizes various input types (URIs, Responses, Streams) and executes the internal loop that matches processed streams against registered converters based on priority and acceptance logic.",
-          "key_entities": [],
-          "source_cluster_ids": [
-            16,
-            17,
-            18,
-            19,
-            20,
-            21,
-            22,
-            23,
-            24,
-            25,
-            26,
-            27,
-            28,
-            29,
-            30,
-            31,
-            32,
-            33,
-            34,
-            35
-          ],
-          "file_methods": [
-            {
-              "file_path": "packages/markitdown/src/markitdown/converters/_exiftool.py",
-              "methods": [
-                "packages.markitdown.src.markitdown.converters._exiftool._parse_version",
-                "packages.markitdown.src.markitdown.converters._exiftool.exiftool_metadata"
               ]
             },
             {
               "file_path": "packages/markitdown/src/markitdown/converters/_html_converter.py",
               "methods": [
-                "packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter.accepts",
                 "packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter.convert"
-              ]
-            },
-            {
-              "file_path": "packages/markitdown/src/markitdown/converters/_image_converter.py",
-              "methods": [
-                "packages.markitdown.src.markitdown.converters._image_converter.ImageConverter.accepts",
-                "packages.markitdown.src.markitdown.converters._image_converter.ImageConverter.convert",
-                "packages.markitdown.src.markitdown.converters._image_converter.ImageConverter._get_llm_description"
-              ]
-            },
-            {
-              "file_path": "packages/markitdown/src/markitdown/converters/_ipynb_converter.py",
-              "methods": [
-                "packages.markitdown.src.markitdown.converters._ipynb_converter.IpynbConverter.accepts",
-                "packages.markitdown.src.markitdown.converters._ipynb_converter.IpynbConverter.convert",
-                "packages.markitdown.src.markitdown.converters._ipynb_converter.IpynbConverter._convert"
               ]
             },
             {
@@ -2971,49 +2937,10 @@
               ]
             },
             {
-              "file_path": "packages/markitdown/src/markitdown/converters/_plain_text_converter.py",
-              "methods": [
-                "packages.markitdown.src.markitdown.converters._plain_text_converter.PlainTextConverter.accepts",
-                "packages.markitdown.src.markitdown.converters._plain_text_converter.PlainTextConverter.convert"
-              ]
-            },
-            {
-              "file_path": "packages/markitdown/src/markitdown/converters/_rss_converter.py",
-              "methods": [
-                "packages.markitdown.src.markitdown.converters._rss_converter.RssConverter.__init__",
-                "packages.markitdown.src.markitdown.converters._rss_converter.RssConverter._check_xml"
-              ]
-            }
-          ],
-          "component_id": "2.3",
-          "can_expand": true
-        },
-        {
-          "name": "Stream & Type Analyzer",
-          "description": "Handles low-level input normalization and content identification. It aggregates metadata from file extensions and headers, and performs deep inspection using magika to provide high-confidence type guesses used for converter selection.",
-          "key_entities": [],
-          "source_cluster_ids": [
-            36,
-            37,
-            38,
-            39,
-            40,
-            41,
-            42,
-            43,
-            44,
-            45,
-            46,
-            47,
-            48,
-            49,
-            50
-          ],
-          "file_methods": [
-            {
               "file_path": "packages/markitdown/src/markitdown/converters/_rss_converter.py",
               "methods": [
                 "packages.markitdown.src.markitdown.converters._rss_converter.RssConverter.accepts",
+                "packages.markitdown.src.markitdown.converters._rss_converter.RssConverter._check_xml",
                 "packages.markitdown.src.markitdown.converters._rss_converter.RssConverter._feed_type",
                 "packages.markitdown.src.markitdown.converters._rss_converter.RssConverter.convert",
                 "packages.markitdown.src.markitdown.converters._rss_converter.RssConverter._parse_atom_type",
@@ -3023,118 +2950,105 @@
               ]
             },
             {
-              "file_path": "packages/markitdown/src/markitdown/converters/_transcribe_audio.py",
-              "methods": [
-                "packages.markitdown.src.markitdown.converters._transcribe_audio.transcribe_audio"
-              ]
-            },
-            {
               "file_path": "packages/markitdown/src/markitdown/converters/_wikipedia_converter.py",
               "methods": [
-                "packages.markitdown.src.markitdown.converters._wikipedia_converter.WikipediaConverter.accepts",
                 "packages.markitdown.src.markitdown.converters._wikipedia_converter.WikipediaConverter.convert"
-              ]
-            },
-            {
-              "file_path": "packages/markitdown/src/markitdown/converters/_youtube_converter.py",
-              "methods": [
-                "packages.markitdown.src.markitdown.converters._youtube_converter.YouTubeConverter.accepts",
-                "packages.markitdown.src.markitdown.converters._youtube_converter.YouTubeConverter.convert",
-                "packages.markitdown.src.markitdown.converters._youtube_converter.YouTubeConverter._get",
-                "packages.markitdown.src.markitdown.converters._youtube_converter.YouTubeConverter._findKey",
-                "packages.markitdown.src.markitdown.converters._youtube_converter.YouTubeConverter._retry_operation"
               ]
             }
           ],
-          "component_id": "2.4",
+          "component_id": "2.2",
+          "can_expand": true
+        },
+        {
+          "name": "Structured Data Translators",
+          "description": "Handles non-HTML structured formats that require specific parsing logic to maintain hierarchical relationships, such as Jupyter Notebooks or YAML.",
+          "key_entities": [
+            {
+              "qualified_name": "packages.markitdown.src.markitdown.converters._ipynb_converter.IpynbConverter",
+              "reference_file": "packages/markitdown/src/markitdown/converters/_ipynb_converter.py",
+              "reference_start_line": 15,
+              "reference_end_line": 96
+            },
+            {
+              "qualified_name": "packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter",
+              "reference_file": "packages/markitdown/src/markitdown/converters/_yaml_converter.py",
+              "reference_start_line": 10,
+              "reference_end_line": 38
+            },
+            {
+              "qualified_name": "packages.markitdown.src.markitdown.converters._yaml_converter._parse_yaml_frontmatter",
+              "reference_file": "packages/markitdown/src/markitdown/converters/_yaml_converter.py",
+              "reference_start_line": 41,
+              "reference_end_line": 52
+            }
+          ],
+          "source_cluster_ids": [
+            3,
+            5
+          ],
+          "file_methods": [
+            {
+              "file_path": "packages/markitdown/src/markitdown/_exceptions.py",
+              "methods": [
+                "packages.markitdown.src.markitdown._exceptions.MarkItDownException",
+                "packages.markitdown.src.markitdown._exceptions.FailedConversionAttempt.__init__",
+                "packages.markitdown.src.markitdown._exceptions.FileConversionException",
+                "packages.markitdown.src.markitdown._exceptions.FileConversionException.__init__"
+              ]
+            },
+            {
+              "file_path": "packages/markitdown/src/markitdown/converters/_ipynb_converter.py",
+              "methods": [
+                "packages.markitdown.src.markitdown.converters._ipynb_converter.IpynbConverter.convert",
+                "packages.markitdown.src.markitdown.converters._ipynb_converter.IpynbConverter._convert"
+              ]
+            },
+            {
+              "file_path": "packages/markitdown/src/markitdown/converters/_yaml_converter.py",
+              "methods": [
+                "packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter",
+                "packages.markitdown.src.markitdown.converters._yaml_converter._parse_yaml_frontmatter"
+              ]
+            }
+          ],
+          "component_id": "2.3",
           "can_expand": true
         }
       ],
       "components_relations": [
         {
-          "relation": "Requests content type inference and metadata extraction for raw input streams.",
-          "src_name": "Conversion Orchestrator",
-          "dst_name": "Stream & Type Analyzer",
+          "relation": "Implements interface and instantiates result models from",
+          "src_name": "Semantic Web & Feed Parsers",
+          "dst_name": "Core Conversion Framework",
+          "src_id": "2.2",
+          "dst_id": "2.1",
+          "edge_count": 6,
+          "is_static": true
+        },
+        {
+          "relation": "Inherits from and flattens data into schema defined by",
+          "src_name": "Structured Data Translators",
+          "dst_name": "Core Conversion Framework",
           "src_id": "2.3",
-          "dst_id": "2.4",
+          "dst_id": "2.1",
           "edge_count": 1,
           "is_static": true
         },
         {
-          "relation": "Queries the registry to find the highest-priority converter that accepts the analyzed stream type.",
-          "src_name": "Conversion Orchestrator",
-          "dst_name": "Registry & Plugin Manager",
-          "src_id": "2.3",
-          "dst_id": "2.2",
+          "relation": "Uses metadata parsing logic from",
+          "src_name": "Semantic Web & Feed Parsers",
+          "dst_name": "Structured Data Translators",
+          "src_id": "2.2",
+          "dst_id": "2.3",
           "edge_count": 0,
           "is_static": false
-        },
-        {
-          "relation": "Executes the conversion via the DocumentConverter interface and returns a DocumentConverterResult.",
-          "src_name": "Conversion Orchestrator",
-          "dst_name": "Core Abstractions & Models",
-          "src_id": "2.3",
-          "dst_id": "2.1",
-          "edge_count": 5,
-          "is_static": true
-        },
-        {
-          "relation": "Stores and manages objects that implement the DocumentConverter base class.",
-          "src_name": "Registry & Plugin Manager",
-          "dst_name": "Core Abstractions & Models",
-          "src_id": "2.2",
-          "dst_id": "2.1",
-          "edge_count": 4,
-          "is_static": true
-        },
-        {
-          "relation": "calls",
-          "src_name": "Registry & Plugin Manager",
-          "dst_name": "Conversion Orchestrator",
-          "src_id": "2.2",
-          "dst_id": "2.3",
-          "edge_count": 4,
-          "is_static": true
-        },
-        {
-          "relation": "calls",
-          "src_name": "Registry & Plugin Manager",
-          "dst_name": "Stream & Type Analyzer",
-          "src_id": "2.2",
-          "dst_id": "2.4",
-          "edge_count": 1,
-          "is_static": true
-        },
-        {
-          "relation": "calls",
-          "src_name": "Stream & Type Analyzer",
-          "dst_name": "Core Abstractions & Models",
-          "src_id": "2.4",
-          "dst_id": "2.1",
-          "edge_count": 4,
-          "is_static": true
-        },
-        {
-          "relation": "calls",
-          "src_name": "Stream & Type Analyzer",
-          "dst_name": "Conversion Orchestrator",
-          "src_id": "2.4",
-          "dst_id": "2.3",
-          "edge_count": 5,
-          "is_static": true
         }
       ]
     },
     {
-      "name": "Specialized Document Parsers",
-      "description": "Implements deep parsing logic for complex document formats like PDF, Word, Excel, and PowerPoint. It includes specialized sub-systems for handling mathematical notation (converting OMML to LaTeX) and structured data extraction from tables and charts.",
+      "name": "Document & Office Processing",
+      "description": "The core engine for parsing binary and XML-based document formats like Word, PowerPoint, and PDF.",
       "key_entities": [
-        {
-          "qualified_name": "packages.markitdown.src.markitdown.converters._pdf_converter.PdfConverter",
-          "reference_file": "packages/markitdown/src/markitdown/converters/_pdf_converter.py",
-          "reference_start_line": 495,
-          "reference_end_line": 589
-        },
         {
           "qualified_name": "packages.markitdown.src.markitdown.converters._docx_converter.DocxConverter",
           "reference_file": "packages/markitdown/src/markitdown/converters/_docx_converter.py",
@@ -3142,19 +3056,21 @@
           "reference_end_line": 83
         },
         {
-          "qualified_name": "packages.markitdown.src.markitdown.converter_utils.docx.pre_process.pre_process_docx",
-          "reference_file": "packages/markitdown/src/markitdown/converter_utils/docx/pre_process.py",
-          "reference_start_line": 118,
-          "reference_end_line": 156
+          "qualified_name": "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter",
+          "reference_file": "packages/markitdown/src/markitdown/converters/_pptx_converter.py",
+          "reference_start_line": 34,
+          "reference_end_line": 264
+        },
+        {
+          "qualified_name": "packages.markitdown.src.markitdown.converters._pdf_converter.PdfConverter",
+          "reference_file": "packages/markitdown/src/markitdown/converters/_pdf_converter.py",
+          "reference_start_line": 495,
+          "reference_end_line": 589
         }
       ],
       "source_cluster_ids": [
-        3,
         5,
-        7,
-        11,
-        12,
-        13
+        10
       ],
       "file_methods": [
         {
@@ -3163,6 +3079,372 @@
             "packages.markitdown.src.markitdown._exceptions.MissingDependencyException"
           ]
         },
+        {
+          "file_path": "packages/markitdown/src/markitdown/converters/_doc_intel_converter.py",
+          "methods": [
+            "packages.markitdown.src.markitdown.converters._doc_intel_converter.AzureKeyCredential",
+            "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentIntelligenceClient",
+            "packages.markitdown.src.markitdown.converters._doc_intel_converter.DefaultAzureCredential",
+            "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentIntelligenceConverter.__init__"
+          ]
+        },
+        {
+          "file_path": "packages/markitdown/src/markitdown/converters/_docx_converter.py",
+          "methods": [
+            "packages.markitdown.src.markitdown.converters._docx_converter.DocxConverter.__init__",
+            "packages.markitdown.src.markitdown.converters._docx_converter.DocxConverter.convert"
+          ]
+        },
+        {
+          "file_path": "packages/markitdown/src/markitdown/converters/_epub_converter.py",
+          "methods": [
+            "packages.markitdown.src.markitdown.converters._epub_converter.EpubConverter.__init__",
+            "packages.markitdown.src.markitdown.converters._epub_converter.EpubConverter.accepts"
+          ]
+        },
+        {
+          "file_path": "packages/markitdown/src/markitdown/converters/_html_converter.py",
+          "methods": [
+            "packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter",
+            "packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter.accepts",
+            "packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter.convert_string"
+          ]
+        },
+        {
+          "file_path": "packages/markitdown/src/markitdown/converters/_llm_caption.py",
+          "methods": [
+            "packages.markitdown.src.markitdown.converters._llm_caption.llm_caption"
+          ]
+        },
+        {
+          "file_path": "packages/markitdown/src/markitdown/converters/_outlook_msg_converter.py",
+          "methods": [
+            "packages.markitdown.src.markitdown.converters._outlook_msg_converter.OutlookMsgConverter.convert",
+            "packages.markitdown.src.markitdown.converters._outlook_msg_converter.OutlookMsgConverter._get_stream_data"
+          ]
+        },
+        {
+          "file_path": "packages/markitdown/src/markitdown/converters/_pdf_converter.py",
+          "methods": [
+            "packages.markitdown.src.markitdown.converters._pdf_converter._merge_partial_numbering_lines",
+            "packages.markitdown.src.markitdown.converters._pdf_converter._extract_form_content_from_words",
+            "packages.markitdown.src.markitdown.converters._pdf_converter._extract_form_content_from_words.extract_cells",
+            "packages.markitdown.src.markitdown.converters._pdf_converter.PdfConverter.convert"
+          ]
+        },
+        {
+          "file_path": "packages/markitdown/src/markitdown/converters/_pptx_converter.py",
+          "methods": [
+            "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter.__init__",
+            "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter.convert",
+            "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter.convert.get_shape_content",
+            "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter._is_picture",
+            "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter._is_table",
+            "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter._convert_table_to_markdown",
+            "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter._convert_chart_to_markdown"
+          ]
+        },
+        {
+          "file_path": "packages/markitdown/src/markitdown/converters/_xlsx_converter.py",
+          "methods": [
+            "packages.markitdown.src.markitdown.converters._xlsx_converter.XlsxConverter.__init__",
+            "packages.markitdown.src.markitdown.converters._xlsx_converter.XlsxConverter.convert",
+            "packages.markitdown.src.markitdown.converters._xlsx_converter.XlsConverter.__init__",
+            "packages.markitdown.src.markitdown.converters._xlsx_converter.XlsConverter.convert"
+          ]
+        }
+      ],
+      "component_id": "3",
+      "can_expand": true,
+      "components": [
+        {
+          "name": "Office Document Converters",
+          "description": "Handles the extraction of text and structure from Microsoft Office formats (Word, Excel) and Outlook messages. It focuses on mapping XML-based styles and tabular data into Markdown equivalents using specialized parsers like mammoth and openpyxl.",
+          "key_entities": [
+            {
+              "qualified_name": "packages.markitdown.src.markitdown.converters._docx_converter.DocxConverter",
+              "reference_file": "packages/markitdown/src/markitdown/converters/_docx_converter.py",
+              "reference_start_line": 31,
+              "reference_end_line": 83
+            },
+            {
+              "qualified_name": "packages.markitdown.src.markitdown.converters._xlsx_converter.XlsxConverter",
+              "reference_file": "packages/markitdown/src/markitdown/converters/_xlsx_converter.py",
+              "reference_start_line": 36,
+              "reference_end_line": 95
+            },
+            {
+              "qualified_name": "packages.markitdown.src.markitdown.converters._outlook_msg_converter.OutlookMsgConverter",
+              "reference_file": "packages/markitdown/src/markitdown/converters/_outlook_msg_converter.py",
+              "reference_start_line": 24,
+              "reference_end_line": 149
+            }
+          ],
+          "source_cluster_ids": [
+            1,
+            3
+          ],
+          "file_methods": [
+            {
+              "file_path": "packages/markitdown/src/markitdown/_exceptions.py",
+              "methods": [
+                "packages.markitdown.src.markitdown._exceptions.MissingDependencyException"
+              ]
+            },
+            {
+              "file_path": "packages/markitdown/src/markitdown/converters/_docx_converter.py",
+              "methods": [
+                "packages.markitdown.src.markitdown.converters._docx_converter.DocxConverter.__init__",
+                "packages.markitdown.src.markitdown.converters._docx_converter.DocxConverter.convert"
+              ]
+            },
+            {
+              "file_path": "packages/markitdown/src/markitdown/converters/_epub_converter.py",
+              "methods": [
+                "packages.markitdown.src.markitdown.converters._epub_converter.EpubConverter.__init__",
+                "packages.markitdown.src.markitdown.converters._epub_converter.EpubConverter.accepts"
+              ]
+            },
+            {
+              "file_path": "packages/markitdown/src/markitdown/converters/_html_converter.py",
+              "methods": [
+                "packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter",
+                "packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter.accepts",
+                "packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter.convert_string"
+              ]
+            },
+            {
+              "file_path": "packages/markitdown/src/markitdown/converters/_outlook_msg_converter.py",
+              "methods": [
+                "packages.markitdown.src.markitdown.converters._outlook_msg_converter.OutlookMsgConverter.convert",
+                "packages.markitdown.src.markitdown.converters._outlook_msg_converter.OutlookMsgConverter._get_stream_data"
+              ]
+            },
+            {
+              "file_path": "packages/markitdown/src/markitdown/converters/_pptx_converter.py",
+              "methods": [
+                "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter.__init__"
+              ]
+            },
+            {
+              "file_path": "packages/markitdown/src/markitdown/converters/_xlsx_converter.py",
+              "methods": [
+                "packages.markitdown.src.markitdown.converters._xlsx_converter.XlsxConverter.__init__",
+                "packages.markitdown.src.markitdown.converters._xlsx_converter.XlsxConverter.convert",
+                "packages.markitdown.src.markitdown.converters._xlsx_converter.XlsConverter.__init__",
+                "packages.markitdown.src.markitdown.converters._xlsx_converter.XlsConverter.convert"
+              ]
+            }
+          ],
+          "component_id": "3.1",
+          "can_expand": true
+        },
+        {
+          "name": "Presentation & Visual Engine",
+          "description": "Manages the hierarchical extraction of content from PowerPoint presentations. It performs spatial analysis of shapes, slides, and notes, and integrates with LLM services to generate descriptive captions for embedded images and charts.",
+          "key_entities": [
+            {
+              "qualified_name": "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter",
+              "reference_file": "packages/markitdown/src/markitdown/converters/_pptx_converter.py",
+              "reference_start_line": 34,
+              "reference_end_line": 264
+            },
+            {
+              "qualified_name": "packages.markitdown.src.markitdown.converters._llm_caption.llm_caption",
+              "reference_file": "packages/markitdown/src/markitdown/converters/_llm_caption.py",
+              "reference_start_line": 7,
+              "reference_end_line": 50
+            }
+          ],
+          "source_cluster_ids": [
+            2
+          ],
+          "file_methods": [
+            {
+              "file_path": "packages/markitdown/src/markitdown/converters/_llm_caption.py",
+              "methods": [
+                "packages.markitdown.src.markitdown.converters._llm_caption.llm_caption"
+              ]
+            },
+            {
+              "file_path": "packages/markitdown/src/markitdown/converters/_pptx_converter.py",
+              "methods": [
+                "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter.convert",
+                "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter.convert.get_shape_content",
+                "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter._is_picture",
+                "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter._is_table",
+                "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter._convert_table_to_markdown",
+                "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter._convert_chart_to_markdown"
+              ]
+            }
+          ],
+          "component_id": "3.2",
+          "can_expand": true
+        },
+        {
+          "name": "PDF & Fixed-Layout Processor",
+          "description": "A specialized parser for PDF files that reconstructs logical document flow from coordinate-based text fragments. It includes sophisticated logic for merging partial lines, identifying form fields, and reconstructing tables from raw word positions.",
+          "key_entities": [
+            {
+              "qualified_name": "packages.markitdown.src.markitdown.converters._pdf_converter.PdfConverter",
+              "reference_file": "packages/markitdown/src/markitdown/converters/_pdf_converter.py",
+              "reference_start_line": 495,
+              "reference_end_line": 589
+            },
+            {
+              "qualified_name": "packages.markitdown.src.markitdown.converters._pdf_converter._extract_form_content_from_words",
+              "reference_file": "packages/markitdown/src/markitdown/converters/_pdf_converter.py",
+              "reference_start_line": 120,
+              "reference_end_line": 395
+            },
+            {
+              "qualified_name": "packages.markitdown.src.markitdown.converters._pdf_converter._merge_partial_numbering_lines",
+              "reference_file": "packages/markitdown/src/markitdown/converters/_pdf_converter.py",
+              "reference_start_line": 14,
+              "reference_end_line": 57
+            }
+          ],
+          "source_cluster_ids": [
+            5
+          ],
+          "file_methods": [
+            {
+              "file_path": "packages/markitdown/src/markitdown/converters/_pdf_converter.py",
+              "methods": [
+                "packages.markitdown.src.markitdown.converters._pdf_converter._merge_partial_numbering_lines",
+                "packages.markitdown.src.markitdown.converters._pdf_converter._extract_form_content_from_words",
+                "packages.markitdown.src.markitdown.converters._pdf_converter._extract_form_content_from_words.extract_cells",
+                "packages.markitdown.src.markitdown.converters._pdf_converter.PdfConverter.convert"
+              ]
+            }
+          ],
+          "component_id": "3.3",
+          "can_expand": true
+        },
+        {
+          "name": "Cloud-Native Intelligence Adapter",
+          "description": "Provides a high-fidelity alternative to local parsing by offloading document analysis to Azure AI Document Intelligence. This is used for complex layouts where local heuristic-based parsing may fall short.",
+          "key_entities": [
+            {
+              "qualified_name": "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentIntelligenceConverter",
+              "reference_file": "packages/markitdown/src/markitdown/converters/_doc_intel_converter.py",
+              "reference_start_line": 130,
+              "reference_end_line": 254
+            },
+            {
+              "qualified_name": "packages.markitdown.src.markitdown.converters._doc_intel_converter.AzureKeyCredential",
+              "reference_file": "packages/markitdown/src/markitdown/converters/_doc_intel_converter.py",
+              "reference_start_line": 28,
+              "reference_end_line": 29
+            }
+          ],
+          "source_cluster_ids": [
+            4
+          ],
+          "file_methods": [
+            {
+              "file_path": "packages/markitdown/src/markitdown/converters/_doc_intel_converter.py",
+              "methods": [
+                "packages.markitdown.src.markitdown.converters._doc_intel_converter.AzureKeyCredential",
+                "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentIntelligenceClient",
+                "packages.markitdown.src.markitdown.converters._doc_intel_converter.DefaultAzureCredential",
+                "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentIntelligenceConverter.__init__"
+              ]
+            }
+          ],
+          "component_id": "3.4",
+          "can_expand": true
+        }
+      ],
+      "components_relations": [
+        {
+          "relation": "utilizes HtmlConverter for table transformation",
+          "src_name": "Presentation & Visual Engine",
+          "dst_name": "Office Document Converters",
+          "src_id": "3.2",
+          "dst_id": "3.1",
+          "edge_count": 2,
+          "is_static": true
+        },
+        {
+          "relation": "utilizes llm_caption utility for visual enrichment",
+          "src_name": "Presentation & Visual Engine",
+          "dst_name": "Cloud-Native Intelligence Adapter",
+          "src_id": "3.2",
+          "dst_id": "3.4",
+          "edge_count": 0,
+          "is_static": false
+        },
+        {
+          "relation": "alternative processing paths for complex documents",
+          "src_name": "PDF & Fixed-Layout Processor",
+          "dst_name": "Cloud-Native Intelligence Adapter",
+          "src_id": "3.3",
+          "dst_id": "3.4",
+          "edge_count": 0,
+          "is_static": false
+        },
+        {
+          "relation": "share common exception handling patterns",
+          "src_name": "Office Document Converters",
+          "dst_name": "PDF & Fixed-Layout Processor",
+          "src_id": "3.1",
+          "dst_id": "3.3",
+          "edge_count": 0,
+          "is_static": false
+        },
+        {
+          "relation": "calls",
+          "src_name": "PDF & Fixed-Layout Processor",
+          "dst_name": "Office Document Converters",
+          "src_id": "3.3",
+          "dst_id": "3.1",
+          "edge_count": 1,
+          "is_static": true
+        },
+        {
+          "relation": "calls",
+          "src_name": "Cloud-Native Intelligence Adapter",
+          "dst_name": "Office Document Converters",
+          "src_id": "3.4",
+          "dst_id": "3.1",
+          "edge_count": 1,
+          "is_static": true
+        }
+      ]
+    },
+    {
+      "name": "Specialized Extraction Utilities",
+      "description": "Provides low-level logic for handling non-trivial elements like math formulas and PDF table reconstruction.",
+      "key_entities": [
+        {
+          "qualified_name": "packages.markitdown.src.markitdown.converter_utils.docx.math.omml.oMath2Latex",
+          "reference_file": "packages/markitdown/src/markitdown/converter_utils/docx/math/omml.py",
+          "reference_start_line": 170,
+          "reference_end_line": 400
+        },
+        {
+          "qualified_name": "packages.markitdown.src.markitdown.converter_utils.docx.pre_process.pre_process_docx",
+          "reference_file": "packages/markitdown/src/markitdown/converter_utils/docx/pre_process.py",
+          "reference_start_line": 118,
+          "reference_end_line": 156
+        },
+        {
+          "qualified_name": "packages.markitdown.src.markitdown.converters._pdf_converter.extract_tables_from_pdf",
+          "reference_file": "packages/markitdown/src/markitdown/converters/_pdf_converter.py",
+          "reference_start_line": 592,
+          "reference_end_line": 622
+        }
+      ],
+      "source_cluster_ids": [
+        1,
+        7,
+        12,
+        14,
+        15,
+        16
+      ],
+      "file_methods": [
         {
           "file_path": "packages/markitdown/src/markitdown/converter_utils/docx/math/omml.py",
           "methods": [
@@ -3221,78 +3503,30 @@
           ]
         },
         {
-          "file_path": "packages/markitdown/src/markitdown/converters/_doc_intel_converter.py",
-          "methods": [
-            "packages.markitdown.src.markitdown.converters._doc_intel_converter.AzureKeyCredential",
-            "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentIntelligenceClient",
-            "packages.markitdown.src.markitdown.converters._doc_intel_converter.DefaultAzureCredential",
-            "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentIntelligenceConverter.__init__"
-          ]
-        },
-        {
-          "file_path": "packages/markitdown/src/markitdown/converters/_docx_converter.py",
-          "methods": [
-            "packages.markitdown.src.markitdown.converters._docx_converter.DocxConverter.convert"
-          ]
-        },
-        {
-          "file_path": "packages/markitdown/src/markitdown/converters/_html_converter.py",
-          "methods": [
-            "packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter.convert_string"
-          ]
-        },
-        {
-          "file_path": "packages/markitdown/src/markitdown/converters/_llm_caption.py",
-          "methods": [
-            "packages.markitdown.src.markitdown.converters._llm_caption.llm_caption"
-          ]
-        },
-        {
-          "file_path": "packages/markitdown/src/markitdown/converters/_outlook_msg_converter.py",
-          "methods": [
-            "packages.markitdown.src.markitdown.converters._outlook_msg_converter.OutlookMsgConverter.convert",
-            "packages.markitdown.src.markitdown.converters._outlook_msg_converter.OutlookMsgConverter._get_stream_data"
-          ]
-        },
-        {
           "file_path": "packages/markitdown/src/markitdown/converters/_pdf_converter.py",
           "methods": [
-            "packages.markitdown.src.markitdown.converters._pdf_converter._merge_partial_numbering_lines",
             "packages.markitdown.src.markitdown.converters._pdf_converter._to_markdown_table",
             "packages.markitdown.src.markitdown.converters._pdf_converter._to_markdown_table.fmt_row",
-            "packages.markitdown.src.markitdown.converters._pdf_converter._extract_form_content_from_words",
-            "packages.markitdown.src.markitdown.converters._pdf_converter._extract_form_content_from_words.extract_cells",
-            "packages.markitdown.src.markitdown.converters._pdf_converter.PdfConverter.convert",
+            "packages.markitdown.src.markitdown.converters._pdf_converter._extract_tables_from_words",
+            "packages.markitdown.src.markitdown.converters._pdf_converter.PdfConverter.accepts",
             "packages.markitdown.src.markitdown.converters._pdf_converter.extract_tables_from_pdf",
             "packages.markitdown.src.markitdown.converters._pdf_converter._words_to_grid"
           ]
-        },
-        {
-          "file_path": "packages/markitdown/src/markitdown/converters/_pptx_converter.py",
-          "methods": [
-            "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter.convert",
-            "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter.convert.get_shape_content",
-            "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter._is_picture",
-            "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter._is_table",
-            "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter._convert_table_to_markdown",
-            "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter._convert_chart_to_markdown"
-          ]
-        },
-        {
-          "file_path": "packages/markitdown/src/markitdown/converters/_xlsx_converter.py",
-          "methods": [
-            "packages.markitdown.src.markitdown.converters._xlsx_converter.XlsxConverter.convert",
-            "packages.markitdown.src.markitdown.converters._xlsx_converter.XlsConverter.convert"
-          ]
         }
       ],
-      "component_id": "3",
+      "component_id": "4",
       "can_expand": true,
       "components": [
         {
-          "name": "Word & Math Processing Engine",
-          "description": "Implements the logic for converting Office Math Markup Language (OMML) into LaTeX and manages the pre-processing of Word documents to ensure equations are correctly formatted before final conversion.",
+          "name": "Docx Math Transformation Engine",
+          "description": "Orchestrates the identification and conversion of Office Math Markup Language (OMML) within Word documents. It scans the document XML structure, isolates mathematical blocks, and delegates the translation to a recursive visitor-based LaTeX engine.",
           "key_entities": [
+            {
+              "qualified_name": "packages.markitdown.src.markitdown.converter_utils.docx.pre_process.pre_process_docx",
+              "reference_file": "packages/markitdown/src/markitdown/converter_utils/docx/pre_process.py",
+              "reference_start_line": 118,
+              "reference_end_line": 156
+            },
             {
               "qualified_name": "packages.markitdown.src.markitdown.converter_utils.docx.math.omml.oMath2Latex",
               "reference_file": "packages/markitdown/src/markitdown/converter_utils/docx/math/omml.py",
@@ -3300,18 +3534,18 @@
               "reference_end_line": 400
             },
             {
-              "qualified_name": "packages.markitdown.src.markitdown.converter_utils.docx.pre_process.pre_process_docx",
-              "reference_file": "packages/markitdown/src/markitdown/converter_utils/docx/pre_process.py",
-              "reference_start_line": 118,
-              "reference_end_line": 156
+              "qualified_name": "packages.markitdown.src.markitdown.converter_utils.docx.math.omml.Tag2Method",
+              "reference_file": "packages/markitdown/src/markitdown/converter_utils/docx/math/omml.py",
+              "reference_start_line": 75,
+              "reference_end_line": 124
             }
           ],
           "source_cluster_ids": [
             1,
+            2,
             3,
             4,
-            5,
-            8
+            5
           ],
           "file_methods": [
             {
@@ -3372,18 +3606,24 @@
               ]
             }
           ],
-          "component_id": "3.1",
+          "component_id": "4.1",
           "can_expand": true
         },
         {
-          "name": "PDF Layout & Table Parser",
-          "description": "Specializes in extracting structured content from PDF files using heuristic-based analysis of word coordinates to reconstruct tables and maintain document flow.",
+          "name": "PDF Spatial Table Extractor",
+          "description": "Reconstructs logical table structures from raw PDF text fragments. It uses spatial heuristics to map text coordinates into a grid-based representation and subsequently serializes that grid into a standard Markdown table format.",
           "key_entities": [
             {
-              "qualified_name": "packages.markitdown.src.markitdown.converters._pdf_converter.PdfConverter",
+              "qualified_name": "packages.markitdown.src.markitdown.converters._pdf_converter.extract_tables_from_pdf",
               "reference_file": "packages/markitdown/src/markitdown/converters/_pdf_converter.py",
-              "reference_start_line": 495,
-              "reference_end_line": 589
+              "reference_start_line": 592,
+              "reference_end_line": 622
+            },
+            {
+              "qualified_name": "packages.markitdown.src.markitdown.converters._pdf_converter._words_to_grid",
+              "reference_file": "packages/markitdown/src/markitdown/converters/_pdf_converter.py",
+              "reference_start_line": 625,
+              "reference_end_line": 637
             },
             {
               "qualified_name": "packages.markitdown.src.markitdown.converters._pdf_converter._to_markdown_table",
@@ -3393,228 +3633,381 @@
             }
           ],
           "source_cluster_ids": [
-            7,
-            9
+            6,
+            7
           ],
           "file_methods": [
             {
               "file_path": "packages/markitdown/src/markitdown/converters/_pdf_converter.py",
               "methods": [
-                "packages.markitdown.src.markitdown.converters._pdf_converter._merge_partial_numbering_lines",
                 "packages.markitdown.src.markitdown.converters._pdf_converter._to_markdown_table",
                 "packages.markitdown.src.markitdown.converters._pdf_converter._to_markdown_table.fmt_row",
-                "packages.markitdown.src.markitdown.converters._pdf_converter._extract_form_content_from_words",
-                "packages.markitdown.src.markitdown.converters._pdf_converter._extract_form_content_from_words.extract_cells",
-                "packages.markitdown.src.markitdown.converters._pdf_converter.PdfConverter.convert",
+                "packages.markitdown.src.markitdown.converters._pdf_converter._extract_tables_from_words",
+                "packages.markitdown.src.markitdown.converters._pdf_converter.PdfConverter.accepts",
                 "packages.markitdown.src.markitdown.converters._pdf_converter.extract_tables_from_pdf",
                 "packages.markitdown.src.markitdown.converters._pdf_converter._words_to_grid"
               ]
             }
           ],
-          "component_id": "3.2",
-          "can_expand": true
-        },
-        {
-          "name": "Presentation & Multimedia Parser",
-          "description": "Extracts content from PowerPoint presentations, including slide text, charts, and tables, and integrates with LLM-based captioning for image descriptions.",
-          "key_entities": [
-            {
-              "qualified_name": "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter",
-              "reference_file": "packages/markitdown/src/markitdown/converters/_pptx_converter.py",
-              "reference_start_line": 34,
-              "reference_end_line": 264
-            },
-            {
-              "qualified_name": "packages.markitdown.src.markitdown.converters._llm_caption.llm_caption",
-              "reference_file": "packages/markitdown/src/markitdown/converters/_llm_caption.py",
-              "reference_start_line": 7,
-              "reference_end_line": 50
-            }
-          ],
-          "source_cluster_ids": [
-            6
-          ],
-          "file_methods": [
-            {
-              "file_path": "packages/markitdown/src/markitdown/converters/_llm_caption.py",
-              "methods": [
-                "packages.markitdown.src.markitdown.converters._llm_caption.llm_caption"
-              ]
-            },
-            {
-              "file_path": "packages/markitdown/src/markitdown/converters/_pptx_converter.py",
-              "methods": [
-                "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter.convert",
-                "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter.convert.get_shape_content",
-                "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter._is_picture",
-                "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter._is_table",
-                "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter._convert_table_to_markdown",
-                "packages.markitdown.src.markitdown.converters._pptx_converter.PptxConverter._convert_chart_to_markdown"
-              ]
-            }
-          ],
-          "component_id": "3.3",
-          "can_expand": true
-        },
-        {
-          "name": "Specialized Format Orchestrators",
-          "description": "Provides the primary entry points and lifecycle management for complex converters like Docx, Xlsx, and Azure Document Intelligence, delegating specific parsing tasks to internal engines.",
-          "key_entities": [
-            {
-              "qualified_name": "packages.markitdown.src.markitdown.converters._docx_converter.DocxConverter",
-              "reference_file": "packages/markitdown/src/markitdown/converters/_docx_converter.py",
-              "reference_start_line": 31,
-              "reference_end_line": 83
-            },
-            {
-              "qualified_name": "packages.markitdown.src.markitdown.converters._xlsx_converter.XlsxConverter",
-              "reference_file": "packages/markitdown/src/markitdown/converters/_xlsx_converter.py",
-              "reference_start_line": 36,
-              "reference_end_line": 95
-            },
-            {
-              "qualified_name": "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentIntelligenceConverter",
-              "reference_file": "packages/markitdown/src/markitdown/converters/_doc_intel_converter.py",
-              "reference_start_line": 130,
-              "reference_end_line": 254
-            }
-          ],
-          "source_cluster_ids": [
-            2
-          ],
-          "file_methods": [
-            {
-              "file_path": "packages/markitdown/src/markitdown/_exceptions.py",
-              "methods": [
-                "packages.markitdown.src.markitdown._exceptions.MissingDependencyException"
-              ]
-            },
-            {
-              "file_path": "packages/markitdown/src/markitdown/converters/_doc_intel_converter.py",
-              "methods": [
-                "packages.markitdown.src.markitdown.converters._doc_intel_converter.AzureKeyCredential",
-                "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentIntelligenceClient",
-                "packages.markitdown.src.markitdown.converters._doc_intel_converter.DefaultAzureCredential",
-                "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentIntelligenceConverter.__init__"
-              ]
-            },
-            {
-              "file_path": "packages/markitdown/src/markitdown/converters/_docx_converter.py",
-              "methods": [
-                "packages.markitdown.src.markitdown.converters._docx_converter.DocxConverter.convert"
-              ]
-            },
-            {
-              "file_path": "packages/markitdown/src/markitdown/converters/_html_converter.py",
-              "methods": [
-                "packages.markitdown.src.markitdown.converters._html_converter.HtmlConverter.convert_string"
-              ]
-            },
-            {
-              "file_path": "packages/markitdown/src/markitdown/converters/_outlook_msg_converter.py",
-              "methods": [
-                "packages.markitdown.src.markitdown.converters._outlook_msg_converter.OutlookMsgConverter.convert",
-                "packages.markitdown.src.markitdown.converters._outlook_msg_converter.OutlookMsgConverter._get_stream_data"
-              ]
-            },
-            {
-              "file_path": "packages/markitdown/src/markitdown/converters/_xlsx_converter.py",
-              "methods": [
-                "packages.markitdown.src.markitdown.converters._xlsx_converter.XlsxConverter.convert",
-                "packages.markitdown.src.markitdown.converters._xlsx_converter.XlsConverter.convert"
-              ]
-            }
-          ],
-          "component_id": "3.4",
-          "can_expand": true
-        },
-        {
-          "name": "YAML Document Converter",
-          "description": "Converts YAML and YML files into Markdown with syntax-highlighted fenced code blocks. Includes a frontmatter parser for extracting metadata from Markdown-style documents.",
-          "key_entities": [
-            {
-              "qualified_name": "packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter",
-              "reference_file": "packages/markitdown/src/markitdown/converters/_yaml_converter.py",
-              "reference_start_line": 10,
-              "reference_end_line": 40
-            }
-          ],
-          "source_cluster_ids": [],
-          "file_methods": [
-            {
-              "file_path": "packages/markitdown/src/markitdown/converters/_yaml_converter.py",
-              "methods": [
-                "packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter",
-                "packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter.accepts",
-                "packages.markitdown.src.markitdown.converters._yaml_converter.YamlConverter.convert",
-                "packages.markitdown.src.markitdown.converters._yaml_converter._parse_yaml_frontmatter"
-              ]
-            }
-          ],
-          "component_id": "3.5",
+          "component_id": "4.2",
           "can_expand": true
         }
       ],
       "components_relations": [
         {
-          "relation": "The DocxConverter invokes pre_process_docx to identify and transform OMML math blocks into LaTeX before the standard document conversion proceeds.",
-          "src_name": "Specialized Format Orchestrators",
-          "dst_name": "Word & Math Processing Engine",
-          "src_id": "3.4",
-          "dst_id": "3.1",
-          "edge_count": 1,
-          "is_static": true
-        },
-        {
-          "relation": "The pre_process_docx function acts as a coordinator that utilizes the oMath2Latex engine to perform the recursive XML-to-string translation for mathematical notations.",
-          "src_name": "Word & Math Processing Engine",
-          "dst_name": "Word & Math Processing Engine",
-          "src_id": "3.1",
-          "dst_id": "3.1",
+          "relation": "performs internal recursive translation via",
+          "src_name": "Docx Math Transformation Engine",
+          "dst_name": "Docx Math Transformation Engine",
+          "src_id": "4.1",
+          "dst_id": "4.1",
           "edge_count": 0,
           "is_static": false
         },
         {
-          "relation": "The PptxConverter utilizes the llm_caption utility to generate descriptive text for visual elements (images) encountered during slide traversal.",
-          "src_name": "Presentation & Multimedia Parser",
-          "dst_name": "Presentation & Multimedia Parser",
-          "src_id": "3.3",
-          "dst_id": "3.3",
-          "edge_count": 0,
-          "is_static": false
-        },
-        {
-          "relation": "calls",
-          "src_name": "PDF Layout & Table Parser",
-          "dst_name": "Specialized Format Orchestrators",
-          "src_id": "3.2",
-          "dst_id": "3.4",
-          "edge_count": 1,
-          "is_static": true
-        },
-        {
-          "relation": "calls",
-          "src_name": "Presentation & Multimedia Parser",
-          "dst_name": "Specialized Format Orchestrators",
-          "src_id": "3.3",
-          "dst_id": "3.4",
-          "edge_count": 2,
-          "is_static": true
-        },
-        {
-          "relation": "Uses shared exception types and base converter abstractions for error handling during YAML parsing.",
-          "src_name": "YAML Document Converter",
-          "dst_name": "Specialized Format Orchestrators",
-          "src_id": "3.5",
-          "dst_id": "3.4",
+          "relation": "maps spatial coordinates to grid for",
+          "src_name": "PDF Spatial Table Extractor",
+          "dst_name": "PDF Spatial Table Extractor",
+          "src_id": "4.2",
+          "dst_id": "4.2",
           "edge_count": 0,
           "is_static": false
         }
       ]
     },
     {
-      "name": "AI & Vision Services",
-      "description": "Provides enhanced conversion capabilities using AI and Computer Vision. It implements OCR-aware converters that can extract text and structure from images and scanned documents using LLM vision models, often replacing standard parsers when high-fidelity visual extraction is required.",
+      "name": "AI & External Service Adapters",
+      "description": "Manages integrations with external APIs for cloud document intelligence, audio transcription, and YouTube scraping.",
+      "key_entities": [
+        {
+          "qualified_name": "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentIntelligenceConverter",
+          "reference_file": "packages/markitdown/src/markitdown/converters/_doc_intel_converter.py",
+          "reference_start_line": 130,
+          "reference_end_line": 254
+        },
+        {
+          "qualified_name": "packages.markitdown.src.markitdown.converters._youtube_converter.YouTubeConverter",
+          "reference_file": "packages/markitdown/src/markitdown/converters/_youtube_converter.py",
+          "reference_start_line": 37,
+          "reference_end_line": 238
+        },
+        {
+          "qualified_name": "packages.markitdown.src.markitdown.converters._transcribe_audio.transcribe_audio",
+          "reference_file": "packages/markitdown/src/markitdown/converters/_transcribe_audio.py",
+          "reference_start_line": 23,
+          "reference_end_line": 49
+        }
+      ],
+      "source_cluster_ids": [
+        8,
+        9,
+        13
+      ],
+      "file_methods": [
+        {
+          "file_path": "packages/markitdown/src/markitdown/converters/_audio_converter.py",
+          "methods": [
+            "packages.markitdown.src.markitdown.converters._audio_converter.AudioConverter.accepts",
+            "packages.markitdown.src.markitdown.converters._audio_converter.AudioConverter.convert"
+          ]
+        },
+        {
+          "file_path": "packages/markitdown/src/markitdown/converters/_doc_intel_converter.py",
+          "methods": [
+            "packages.markitdown.src.markitdown.converters._doc_intel_converter.TokenCredential",
+            "packages.markitdown.src.markitdown.converters._doc_intel_converter.AnalyzeDocumentRequest",
+            "packages.markitdown.src.markitdown.converters._doc_intel_converter.AnalyzeResult",
+            "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentAnalysisFeature",
+            "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentIntelligenceFileType",
+            "packages.markitdown.src.markitdown.converters._doc_intel_converter._get_mime_type_prefixes",
+            "packages.markitdown.src.markitdown.converters._doc_intel_converter._get_file_extensions",
+            "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentIntelligenceConverter.accepts",
+            "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentIntelligenceConverter._analysis_features",
+            "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentIntelligenceConverter.convert"
+          ]
+        },
+        {
+          "file_path": "packages/markitdown/src/markitdown/converters/_exiftool.py",
+          "methods": [
+            "packages.markitdown.src.markitdown.converters._exiftool._parse_version",
+            "packages.markitdown.src.markitdown.converters._exiftool.exiftool_metadata"
+          ]
+        },
+        {
+          "file_path": "packages/markitdown/src/markitdown/converters/_image_converter.py",
+          "methods": [
+            "packages.markitdown.src.markitdown.converters._image_converter.ImageConverter.accepts",
+            "packages.markitdown.src.markitdown.converters._image_converter.ImageConverter.convert",
+            "packages.markitdown.src.markitdown.converters._image_converter.ImageConverter._get_llm_description"
+          ]
+        },
+        {
+          "file_path": "packages/markitdown/src/markitdown/converters/_transcribe_audio.py",
+          "methods": [
+            "packages.markitdown.src.markitdown.converters._transcribe_audio.transcribe_audio"
+          ]
+        },
+        {
+          "file_path": "packages/markitdown/src/markitdown/converters/_youtube_converter.py",
+          "methods": [
+            "packages.markitdown.src.markitdown.converters._youtube_converter.YouTubeConverter.convert",
+            "packages.markitdown.src.markitdown.converters._youtube_converter.YouTubeConverter._get",
+            "packages.markitdown.src.markitdown.converters._youtube_converter.YouTubeConverter._findKey",
+            "packages.markitdown.src.markitdown.converters._youtube_converter.YouTubeConverter._retry_operation"
+          ]
+        }
+      ],
+      "component_id": "5",
+      "can_expand": true,
+      "components": [
+        {
+          "name": "Cloud Document Intelligence Adapter",
+          "description": "Interfaces with Azure AI Document Intelligence to process complex PDFs and images. It handles the full lifecycle of remote document analysis, including uploading streams, polling for completion, and mapping the service's JSON layout response to semantic Markdown.",
+          "key_entities": [
+            {
+              "qualified_name": "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentIntelligenceConverter",
+              "reference_file": "packages/markitdown/src/markitdown/converters/_doc_intel_converter.py",
+              "reference_start_line": 130,
+              "reference_end_line": 254
+            },
+            {
+              "qualified_name": "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentIntelligenceConverter.convert",
+              "reference_file": "packages/markitdown/src/markitdown/converters/_doc_intel_converter.py",
+              "reference_start_line": 237,
+              "reference_end_line": 254
+            }
+          ],
+          "source_cluster_ids": [
+            0,
+            4,
+            7
+          ],
+          "file_methods": [
+            {
+              "file_path": "packages/markitdown/src/markitdown/converters/_audio_converter.py",
+              "methods": [
+                "packages.markitdown.src.markitdown.converters._audio_converter.AudioConverter.accepts"
+              ]
+            },
+            {
+              "file_path": "packages/markitdown/src/markitdown/converters/_doc_intel_converter.py",
+              "methods": [
+                "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentIntelligenceConverter.convert"
+              ]
+            },
+            {
+              "file_path": "packages/markitdown/src/markitdown/converters/_exiftool.py",
+              "methods": [
+                "packages.markitdown.src.markitdown.converters._exiftool._parse_version"
+              ]
+            }
+          ],
+          "component_id": "5.1",
+          "can_expand": true
+        },
+        {
+          "name": "Multimedia & Speech Processor",
+          "description": "Manages the conversion of audio and visual media into text. It utilizes speech-to-text models (like Whisper) for audio transcription and Large Multimodal Models (LMMs) for generating descriptive captions for images and video frames.",
+          "key_entities": [
+            {
+              "qualified_name": "packages.markitdown.src.markitdown.converters._transcribe_audio.transcribe_audio",
+              "reference_file": "packages/markitdown/src/markitdown/converters/_transcribe_audio.py",
+              "reference_start_line": 23,
+              "reference_end_line": 49
+            }
+          ],
+          "source_cluster_ids": [
+            1,
+            5,
+            12
+          ],
+          "file_methods": [
+            {
+              "file_path": "packages/markitdown/src/markitdown/converters/_audio_converter.py",
+              "methods": [
+                "packages.markitdown.src.markitdown.converters._audio_converter.AudioConverter.convert"
+              ]
+            },
+            {
+              "file_path": "packages/markitdown/src/markitdown/converters/_doc_intel_converter.py",
+              "methods": [
+                "packages.markitdown.src.markitdown.converters._doc_intel_converter._get_file_extensions"
+              ]
+            },
+            {
+              "file_path": "packages/markitdown/src/markitdown/converters/_transcribe_audio.py",
+              "methods": [
+                "packages.markitdown.src.markitdown.converters._transcribe_audio.transcribe_audio"
+              ]
+            }
+          ],
+          "component_id": "5.2",
+          "can_expand": true
+        },
+        {
+          "name": "Web Content Extractor",
+          "description": "A specialized adapter for extracting content from external web platforms, specifically YouTube. It handles URL parsing, metadata scraping, and the retrieval of generated or manual transcripts to represent video content as text.",
+          "key_entities": [
+            {
+              "qualified_name": "packages.markitdown.src.markitdown.converters._youtube_converter.YouTubeConverter",
+              "reference_file": "packages/markitdown/src/markitdown/converters/_youtube_converter.py",
+              "reference_start_line": 37,
+              "reference_end_line": 238
+            }
+          ],
+          "source_cluster_ids": [
+            2,
+            8,
+            15
+          ],
+          "file_methods": [
+            {
+              "file_path": "packages/markitdown/src/markitdown/converters/_doc_intel_converter.py",
+              "methods": [
+                "packages.markitdown.src.markitdown.converters._doc_intel_converter.TokenCredential",
+                "packages.markitdown.src.markitdown.converters._doc_intel_converter.AnalyzeDocumentRequest",
+                "packages.markitdown.src.markitdown.converters._doc_intel_converter.AnalyzeResult",
+                "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentAnalysisFeature",
+                "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentIntelligenceFileType",
+                "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentIntelligenceConverter._analysis_features"
+              ]
+            },
+            {
+              "file_path": "packages/markitdown/src/markitdown/converters/_exiftool.py",
+              "methods": [
+                "packages.markitdown.src.markitdown.converters._exiftool.exiftool_metadata"
+              ]
+            },
+            {
+              "file_path": "packages/markitdown/src/markitdown/converters/_youtube_converter.py",
+              "methods": [
+                "packages.markitdown.src.markitdown.converters._youtube_converter.YouTubeConverter._retry_operation"
+              ]
+            }
+          ],
+          "component_id": "5.3",
+          "can_expand": true
+        },
+        {
+          "name": "Vision-AI OCR Engine",
+          "description": "Provides high-fidelity text extraction from images and documents using Vision-based LLMs. This component defines the service interface for multimodal OCR and provides specialized document converters that fallback to AI vision when standard parsing fails.",
+          "key_entities": [],
+          "source_cluster_ids": [
+            3,
+            6,
+            9,
+            10,
+            11,
+            13,
+            14,
+            16
+          ],
+          "file_methods": [
+            {
+              "file_path": "packages/markitdown/src/markitdown/converters/_doc_intel_converter.py",
+              "methods": [
+                "packages.markitdown.src.markitdown.converters._doc_intel_converter._get_mime_type_prefixes",
+                "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentIntelligenceConverter.accepts"
+              ]
+            },
+            {
+              "file_path": "packages/markitdown/src/markitdown/converters/_image_converter.py",
+              "methods": [
+                "packages.markitdown.src.markitdown.converters._image_converter.ImageConverter.accepts",
+                "packages.markitdown.src.markitdown.converters._image_converter.ImageConverter.convert",
+                "packages.markitdown.src.markitdown.converters._image_converter.ImageConverter._get_llm_description"
+              ]
+            },
+            {
+              "file_path": "packages/markitdown/src/markitdown/converters/_youtube_converter.py",
+              "methods": [
+                "packages.markitdown.src.markitdown.converters._youtube_converter.YouTubeConverter.convert",
+                "packages.markitdown.src.markitdown.converters._youtube_converter.YouTubeConverter._get",
+                "packages.markitdown.src.markitdown.converters._youtube_converter.YouTubeConverter._findKey"
+              ]
+            }
+          ],
+          "component_id": "5.4",
+          "can_expand": true
+        }
+      ],
+      "components_relations": [
+        {
+          "relation": "uses",
+          "src_name": "Vision-AI OCR Engine",
+          "dst_name": "Multimedia & Speech Processor",
+          "src_id": "5.4",
+          "dst_id": "5.2",
+          "edge_count": 1,
+          "is_static": true
+        },
+        {
+          "relation": "alternative high-fidelity conversion paths",
+          "src_name": "Cloud Document Intelligence Adapter",
+          "dst_name": "Vision-AI OCR Engine",
+          "src_id": "5.1",
+          "dst_id": "5.4",
+          "edge_count": 0,
+          "is_static": false
+        },
+        {
+          "relation": "interacts with",
+          "src_name": "Web Content Extractor",
+          "dst_name": "Multimedia & Speech Processor",
+          "src_id": "5.3",
+          "dst_id": "5.2",
+          "edge_count": 1,
+          "is_static": true
+        },
+        {
+          "relation": "calls",
+          "src_name": "Cloud Document Intelligence Adapter",
+          "dst_name": "Web Content Extractor",
+          "src_id": "5.1",
+          "dst_id": "5.3",
+          "edge_count": 2,
+          "is_static": true
+        },
+        {
+          "relation": "calls",
+          "src_name": "Multimedia & Speech Processor",
+          "dst_name": "Web Content Extractor",
+          "src_id": "5.2",
+          "dst_id": "5.3",
+          "edge_count": 1,
+          "is_static": true
+        },
+        {
+          "relation": "calls",
+          "src_name": "Web Content Extractor",
+          "dst_name": "Cloud Document Intelligence Adapter",
+          "src_id": "5.3",
+          "dst_id": "5.1",
+          "edge_count": 1,
+          "is_static": true
+        },
+        {
+          "relation": "calls",
+          "src_name": "Web Content Extractor",
+          "dst_name": "Vision-AI OCR Engine",
+          "src_id": "5.3",
+          "dst_id": "5.4",
+          "edge_count": 1,
+          "is_static": true
+        },
+        {
+          "relation": "calls",
+          "src_name": "Vision-AI OCR Engine",
+          "dst_name": "Web Content Extractor",
+          "src_id": "5.4",
+          "dst_id": "5.3",
+          "edge_count": 2,
+          "is_static": true
+        }
+      ]
+    },
+    {
+      "name": "Vision & OCR Enhancement",
+      "description": "An optional layer that adds computer vision and OCR capabilities to extract text from visual elements in documents.",
       "key_entities": [
         {
           "qualified_name": "packages.markitdown-ocr.src.markitdown_ocr._ocr_service.LLMVisionOCRService",
@@ -3631,7 +4024,7 @@
       ],
       "source_cluster_ids": [
         6,
-        9
+        11
       ],
       "file_methods": [
         {
@@ -3701,51 +4094,28 @@
           ]
         }
       ],
-      "component_id": "4",
+      "component_id": "6",
       "can_expand": true,
       "components": [
         {
-          "name": "OCR Core & PDF Integration",
-          "description": "This component serves as the foundational engine for the subsystem. It provides the central LLMVisionOCRService, which encapsulates the logic for interacting with vision-capable LLMs. It also includes the PdfConverterWithOCR, the primary implementation for processing scanned PDF documents, and the plugin registration logic that integrates all OCR-aware converters into the MarkItDown framework.",
+          "name": "OCR Service Engine",
+          "description": "The central abstraction layer that manages the interaction with LLM vision models, converting raw image data into text descriptions or OCR results.",
           "key_entities": [
             {
-              "qualified_name": "packages.markitdown-ocr.src.markitdown_ocr._ocr_service.LLMVisionOCRService",
+              "qualified_name": "packages.markitdown-ocr.src.markitdown_ocr._ocr_service.OCRResult",
               "reference_file": "packages/markitdown-ocr/src/markitdown_ocr/_ocr_service.py",
-              "reference_start_line": 23,
-              "reference_end_line": 110
-            },
-            {
-              "qualified_name": "packages.markitdown-ocr.src.markitdown_ocr._pdf_converter_with_ocr.PdfConverterWithOCR",
-              "reference_file": "packages/markitdown-ocr/src/markitdown_ocr/_pdf_converter_with_ocr.py",
-              "reference_start_line": 129,
-              "reference_end_line": 422
-            },
-            {
-              "qualified_name": "packages.markitdown-ocr.src.markitdown_ocr._plugin.register_converters",
-              "reference_file": "packages/markitdown-ocr/src/markitdown_ocr/_plugin.py",
-              "reference_start_line": 19,
-              "reference_end_line": 68
+              "reference_start_line": 14,
+              "reference_end_line": 20
             }
           ],
           "source_cluster_ids": [
-            1,
             2
           ],
           "file_methods": [
             {
-              "file_path": "packages/markitdown-ocr/src/markitdown_ocr/_docx_converter_with_ocr.py",
-              "methods": [
-                "packages.markitdown-ocr.src.markitdown_ocr._docx_converter_with_ocr.DocxConverterWithOCR",
-                "packages.markitdown-ocr.src.markitdown_ocr._docx_converter_with_ocr.DocxConverterWithOCR.__init__",
-                "packages.markitdown-ocr.src.markitdown_ocr._docx_converter_with_ocr.DocxConverterWithOCR.accepts"
-              ]
-            },
-            {
               "file_path": "packages/markitdown-ocr/src/markitdown_ocr/_ocr_service.py",
               "methods": [
                 "packages.markitdown-ocr.src.markitdown_ocr._ocr_service.OCRResult",
-                "packages.markitdown-ocr.src.markitdown_ocr._ocr_service.LLMVisionOCRService",
-                "packages.markitdown-ocr.src.markitdown_ocr._ocr_service.LLMVisionOCRService.__init__",
                 "packages.markitdown-ocr.src.markitdown_ocr._ocr_service.LLMVisionOCRService.extract_text"
               ]
             },
@@ -3753,49 +4123,30 @@
               "file_path": "packages/markitdown-ocr/src/markitdown_ocr/_pdf_converter_with_ocr.py",
               "methods": [
                 "packages.markitdown-ocr.src.markitdown_ocr._pdf_converter_with_ocr._extract_images_from_page",
-                "packages.markitdown-ocr.src.markitdown_ocr._pdf_converter_with_ocr.PdfConverterWithOCR",
-                "packages.markitdown-ocr.src.markitdown_ocr._pdf_converter_with_ocr.PdfConverterWithOCR.__init__",
-                "packages.markitdown-ocr.src.markitdown_ocr._pdf_converter_with_ocr.PdfConverterWithOCR.accepts",
                 "packages.markitdown-ocr.src.markitdown_ocr._pdf_converter_with_ocr.PdfConverterWithOCR.convert",
                 "packages.markitdown-ocr.src.markitdown_ocr._pdf_converter_with_ocr.PdfConverterWithOCR._extract_page_images",
                 "packages.markitdown-ocr.src.markitdown_ocr._pdf_converter_with_ocr.PdfConverterWithOCR._ocr_full_pages"
               ]
-            },
-            {
-              "file_path": "packages/markitdown-ocr/src/markitdown_ocr/_plugin.py",
-              "methods": [
-                "packages.markitdown-ocr.src.markitdown_ocr._plugin.register_converters"
-              ]
-            },
-            {
-              "file_path": "packages/markitdown-ocr/src/markitdown_ocr/_pptx_converter_with_ocr.py",
-              "methods": [
-                "packages.markitdown-ocr.src.markitdown_ocr._pptx_converter_with_ocr.PptxConverterWithOCR",
-                "packages.markitdown-ocr.src.markitdown_ocr._pptx_converter_with_ocr.PptxConverterWithOCR.__init__",
-                "packages.markitdown-ocr.src.markitdown_ocr._pptx_converter_with_ocr.PptxConverterWithOCR.accepts"
-              ]
-            },
-            {
-              "file_path": "packages/markitdown-ocr/src/markitdown_ocr/_xlsx_converter_with_ocr.py",
-              "methods": [
-                "packages.markitdown-ocr.src.markitdown_ocr._xlsx_converter_with_ocr.XlsxConverterWithOCR",
-                "packages.markitdown-ocr.src.markitdown_ocr._xlsx_converter_with_ocr.XlsxConverterWithOCR.__init__",
-                "packages.markitdown-ocr.src.markitdown_ocr._xlsx_converter_with_ocr.XlsxConverterWithOCR.accepts"
-              ]
             }
           ],
-          "component_id": "4.1",
+          "component_id": "6.1",
           "can_expand": true
         },
         {
-          "name": "Office OCR Extensions",
-          "description": "This component provides specialized converters for Microsoft Office formats (Word, Excel, and PowerPoint). These converters implement format-specific logic to identify and extract visual assets\u2014such as embedded images, charts, and diagrams\u2014and delegate the visual analysis to the central OCR service to enrich the final Markdown output with descriptions of these elements.",
+          "name": "OCR-Enabled Document Converters",
+          "description": "A collection of format-specific converters (PDF, PPTX, XLSX, DOCX) that identify visual elements and delegate text extraction to the OCR Service Engine.",
           "key_entities": [
             {
-              "qualified_name": "packages.markitdown-ocr.src.markitdown_ocr._docx_converter_with_ocr.DocxConverterWithOCR",
-              "reference_file": "packages/markitdown-ocr/src/markitdown_ocr/_docx_converter_with_ocr.py",
-              "reference_start_line": 33,
-              "reference_end_line": 189
+              "qualified_name": "packages.markitdown-ocr.src.markitdown_ocr._pdf_converter_with_ocr.PdfConverterWithOCR",
+              "reference_file": "packages/markitdown-ocr/src/markitdown_ocr/_pdf_converter_with_ocr.py",
+              "reference_start_line": 129,
+              "reference_end_line": 422
+            },
+            {
+              "qualified_name": "packages.markitdown-ocr.src.markitdown_ocr._pptx_converter_with_ocr.PptxConverterWithOCR",
+              "reference_file": "packages/markitdown-ocr/src/markitdown_ocr/_pptx_converter_with_ocr.py",
+              "reference_start_line": 27,
+              "reference_end_line": 249
             },
             {
               "qualified_name": "packages.markitdown-ocr.src.markitdown_ocr._xlsx_converter_with_ocr.XlsxConverterWithOCR",
@@ -3804,10 +4155,10 @@
               "reference_end_line": 225
             },
             {
-              "qualified_name": "packages.markitdown-ocr.src.markitdown_ocr._pptx_converter_with_ocr.PptxConverterWithOCR",
-              "reference_file": "packages/markitdown-ocr/src/markitdown_ocr/_pptx_converter_with_ocr.py",
-              "reference_start_line": 27,
-              "reference_end_line": 249
+              "qualified_name": "packages.markitdown-ocr.src.markitdown_ocr._docx_converter_with_ocr.DocxConverterWithOCR",
+              "reference_file": "packages/markitdown-ocr/src/markitdown_ocr/_docx_converter_with_ocr.py",
+              "reference_start_line": 33,
+              "reference_end_line": 189
             }
           ],
           "source_cluster_ids": [
@@ -3847,238 +4198,164 @@
               ]
             }
           ],
-          "component_id": "4.2",
+          "component_id": "6.2",
+          "can_expand": true
+        },
+        {
+          "name": "OCR Plugin Integrator",
+          "description": "Manages the registration and discovery of OCR-enhanced converters, ensuring they take precedence when the OCR plugin is active.",
+          "key_entities": [
+            {
+              "qualified_name": "packages.markitdown-ocr.src.markitdown_ocr._plugin.register_converters",
+              "reference_file": "packages/markitdown-ocr/src/markitdown_ocr/_plugin.py",
+              "reference_start_line": 19,
+              "reference_end_line": 68
+            }
+          ],
+          "source_cluster_ids": [
+            1
+          ],
+          "file_methods": [
+            {
+              "file_path": "packages/markitdown-ocr/src/markitdown_ocr/_docx_converter_with_ocr.py",
+              "methods": [
+                "packages.markitdown-ocr.src.markitdown_ocr._docx_converter_with_ocr.DocxConverterWithOCR",
+                "packages.markitdown-ocr.src.markitdown_ocr._docx_converter_with_ocr.DocxConverterWithOCR.__init__",
+                "packages.markitdown-ocr.src.markitdown_ocr._docx_converter_with_ocr.DocxConverterWithOCR.accepts"
+              ]
+            },
+            {
+              "file_path": "packages/markitdown-ocr/src/markitdown_ocr/_ocr_service.py",
+              "methods": [
+                "packages.markitdown-ocr.src.markitdown_ocr._ocr_service.LLMVisionOCRService",
+                "packages.markitdown-ocr.src.markitdown_ocr._ocr_service.LLMVisionOCRService.__init__"
+              ]
+            },
+            {
+              "file_path": "packages/markitdown-ocr/src/markitdown_ocr/_pdf_converter_with_ocr.py",
+              "methods": [
+                "packages.markitdown-ocr.src.markitdown_ocr._pdf_converter_with_ocr.PdfConverterWithOCR",
+                "packages.markitdown-ocr.src.markitdown_ocr._pdf_converter_with_ocr.PdfConverterWithOCR.__init__",
+                "packages.markitdown-ocr.src.markitdown_ocr._pdf_converter_with_ocr.PdfConverterWithOCR.accepts"
+              ]
+            },
+            {
+              "file_path": "packages/markitdown-ocr/src/markitdown_ocr/_plugin.py",
+              "methods": [
+                "packages.markitdown-ocr.src.markitdown_ocr._plugin.register_converters"
+              ]
+            },
+            {
+              "file_path": "packages/markitdown-ocr/src/markitdown_ocr/_pptx_converter_with_ocr.py",
+              "methods": [
+                "packages.markitdown-ocr.src.markitdown_ocr._pptx_converter_with_ocr.PptxConverterWithOCR",
+                "packages.markitdown-ocr.src.markitdown_ocr._pptx_converter_with_ocr.PptxConverterWithOCR.__init__",
+                "packages.markitdown-ocr.src.markitdown_ocr._pptx_converter_with_ocr.PptxConverterWithOCR.accepts"
+              ]
+            },
+            {
+              "file_path": "packages/markitdown-ocr/src/markitdown_ocr/_xlsx_converter_with_ocr.py",
+              "methods": [
+                "packages.markitdown-ocr.src.markitdown_ocr._xlsx_converter_with_ocr.XlsxConverterWithOCR",
+                "packages.markitdown-ocr.src.markitdown_ocr._xlsx_converter_with_ocr.XlsxConverterWithOCR.__init__",
+                "packages.markitdown-ocr.src.markitdown_ocr._xlsx_converter_with_ocr.XlsxConverterWithOCR.accepts"
+              ]
+            }
+          ],
+          "component_id": "6.3",
           "can_expand": true
         }
       ],
       "components_relations": [
         {
-          "relation": "delegates visual asset processing to",
-          "src_name": "Office OCR Extensions",
-          "dst_name": "OCR Core & PDF Integration",
-          "src_id": "4.2",
-          "dst_id": "4.1",
+          "relation": "extracts image bytes and requests transcription from",
+          "src_name": "OCR-Enabled Document Converters",
+          "dst_name": "OCR Service Engine",
+          "src_id": "6.2",
+          "dst_id": "6.1",
           "edge_count": 3,
           "is_static": true
         },
         {
-          "relation": "registers",
-          "src_name": "OCR Core & PDF Integration",
-          "dst_name": "Office OCR Extensions",
-          "src_id": "4.1",
-          "dst_id": "4.2",
-          "edge_count": 0,
-          "is_static": false
-        }
-      ]
-    },
-    {
-      "name": "External & Plugin Extensions",
-      "description": "Manages integrations with external cloud services and provides the infrastructure for third-party plugins. This allows the library to be extended with new formats (like RTF) and high-fidelity cloud-based parsing via services like Azure AI Document Intelligence.",
-      "key_entities": [
-        {
-          "qualified_name": "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentIntelligenceConverter",
-          "reference_file": "packages/markitdown/src/markitdown/converters/_doc_intel_converter.py",
-          "reference_start_line": 130,
-          "reference_end_line": 254
-        }
-      ],
-      "source_cluster_ids": [
-        8,
-        15
-      ],
-      "file_methods": [
-        {
-          "file_path": "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py",
-          "methods": [
-            "packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.register_converters",
-            "packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.RtfConverter",
-            "packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.RtfConverter.accepts",
-            "packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.RtfConverter.convert"
-          ]
-        },
-        {
-          "file_path": "packages/markitdown/src/markitdown/converters/_doc_intel_converter.py",
-          "methods": [
-            "packages.markitdown.src.markitdown.converters._doc_intel_converter.TokenCredential",
-            "packages.markitdown.src.markitdown.converters._doc_intel_converter.AnalyzeDocumentRequest",
-            "packages.markitdown.src.markitdown.converters._doc_intel_converter.AnalyzeResult",
-            "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentAnalysisFeature",
-            "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentIntelligenceFileType",
-            "packages.markitdown.src.markitdown.converters._doc_intel_converter._get_mime_type_prefixes",
-            "packages.markitdown.src.markitdown.converters._doc_intel_converter._get_file_extensions",
-            "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentIntelligenceConverter.accepts",
-            "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentIntelligenceConverter._analysis_features",
-            "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentIntelligenceConverter.convert"
-          ]
-        }
-      ],
-      "component_id": "5",
-      "can_expand": true,
-      "components": [
-        {
-          "name": "Plugin Discovery & Infrastructure",
-          "description": "Manages the lifecycle of external extensions by scanning Python entry points and registering third-party converters into the main registry.",
-          "key_entities": [
-            {
-              "qualified_name": "packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.register_converters",
-              "reference_file": "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py",
-              "reference_start_line": 25,
-              "reference_end_line": 31
-            }
-          ],
-          "source_cluster_ids": [
-            7
-          ],
-          "file_methods": [
-            {
-              "file_path": "packages/markitdown/src/markitdown/converters/_doc_intel_converter.py",
-              "methods": [
-                "packages.markitdown.src.markitdown.converters._doc_intel_converter._get_mime_type_prefixes"
-              ]
-            }
-          ],
-          "component_id": "5.1",
-          "can_expand": true
-        },
-        {
-          "name": "Cloud Service Adapters",
-          "description": "Provides high-fidelity document parsing by interfacing with external cloud APIs, specifically Azure AI Document Intelligence, for complex layout analysis and OCR.",
-          "key_entities": [
-            {
-              "qualified_name": "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentIntelligenceConverter",
-              "reference_file": "packages/markitdown/src/markitdown/converters/_doc_intel_converter.py",
-              "reference_start_line": 130,
-              "reference_end_line": 254
-            },
-            {
-              "qualified_name": "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentIntelligenceConverter.convert",
-              "reference_file": "packages/markitdown/src/markitdown/converters/_doc_intel_converter.py",
-              "reference_start_line": 237,
-              "reference_end_line": 254
-            }
-          ],
-          "source_cluster_ids": [
-            6
-          ],
-          "file_methods": [
-            {
-              "file_path": "packages/markitdown/src/markitdown/converters/_doc_intel_converter.py",
-              "methods": [
-                "packages.markitdown.src.markitdown.converters._doc_intel_converter._get_file_extensions"
-              ]
-            }
-          ],
-          "component_id": "5.2",
-          "can_expand": true
-        },
-        {
-          "name": "OCR Extension Suite",
-          "description": "A specialized plugin implementation that enhances standard converters with OCR capabilities using LLM vision models to extract text from images and complex documents.",
-          "key_entities": [],
-          "source_cluster_ids": [
-            2,
-            3,
-            4,
-            5
-          ],
-          "file_methods": [
-            {
-              "file_path": "packages/markitdown-sample-plugin/src/markitdown_sample_plugin/_plugin.py",
-              "methods": [
-                "packages.markitdown-sample-plugin.src.markitdown_sample_plugin._plugin.register_converters"
-              ]
-            },
-            {
-              "file_path": "packages/markitdown/src/markitdown/converters/_doc_intel_converter.py",
-              "methods": [
-                "packages.markitdown.src.markitdown.converters._doc_intel_converter.TokenCredential",
-                "packages.markitdown.src.markitdown.converters._doc_intel_converter.AnalyzeDocumentRequest",
-                "packages.markitdown.src.markitdown.converters._doc_intel_converter.AnalyzeResult",
-                "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentAnalysisFeature",
-                "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentIntelligenceFileType",
-                "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentIntelligenceConverter.accepts",
-                "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentIntelligenceConverter._analysis_features",
-                "packages.markitdown.src.markitdown.converters._doc_intel_converter.DocumentIntelligenceConverter.convert"
-              ]
-            }
-          ],
-          "component_id": "5.3",
-          "can_expand": true
-        }
-      ],
-      "components_relations": [
-        {
-          "relation": "Discovers and registers the OCR-enhanced converters into the core registry during initialization.",
-          "src_name": "Plugin Discovery & Infrastructure",
-          "dst_name": "OCR Extension Suite",
-          "src_id": "5.1",
-          "dst_id": "5.3",
+          "relation": "instantiates and registers",
+          "src_name": "OCR Plugin Integrator",
+          "dst_name": "OCR-Enabled Document Converters",
+          "src_id": "6.3",
+          "dst_id": "6.2",
           "edge_count": 0,
           "is_static": false
         },
         {
-          "relation": "Provides an alternative high-fidelity extraction path when local LLM-vision OCR is preferred over cloud-based Azure services.",
-          "src_name": "OCR Extension Suite",
-          "dst_name": "Cloud Service Adapters",
-          "src_id": "5.3",
-          "dst_id": "5.2",
-          "edge_count": 2,
-          "is_static": true
-        },
-        {
-          "relation": "calls",
-          "src_name": "OCR Extension Suite",
-          "dst_name": "Plugin Discovery & Infrastructure",
-          "src_id": "5.3",
-          "dst_id": "5.1",
-          "edge_count": 2,
-          "is_static": true
+          "relation": "returns structured OCR results to",
+          "src_name": "OCR Service Engine",
+          "dst_name": "OCR-Enabled Document Converters",
+          "src_id": "6.1",
+          "dst_id": "6.2",
+          "edge_count": 0,
+          "is_static": false
         }
       ]
     }
   ],
   "components_relations": [
     {
-      "relation": "Dispatches conversion requests and manages the converter registry.",
-      "src_name": "Orchestration & Interface",
-      "dst_name": "Core Conversion Logic",
+      "relation": "Uses base classes to register and validate compatible converter plugins",
+      "src_name": "Orchestration & Routing",
+      "dst_name": "Conversion Schema & Base Logic",
       "src_id": "1",
       "dst_id": "2",
       "edge_count": 3,
       "is_static": true
     },
     {
-      "relation": "Routes standard document formats (PDF, DOCX, XLSX) to specialized parsing engines.",
-      "src_name": "Core Conversion Logic",
-      "dst_name": "Specialized Document Parsers",
-      "src_id": "2",
+      "relation": "Dispatches local file streams to specific converters based on file extension/MIME type",
+      "src_name": "Orchestration & Routing",
+      "dst_name": "Document & Office Processing",
+      "src_id": "1",
       "dst_id": "3",
       "edge_count": 1,
       "is_static": true
     },
     {
-      "relation": "Routes requests to OCR-enhanced converters when AI features are enabled.",
-      "src_name": "Core Conversion Logic",
-      "dst_name": "AI & Vision Services",
-      "src_id": "2",
-      "dst_id": "4",
-      "edge_count": 0,
-      "is_static": false
-    },
-    {
-      "relation": "Delegates conversion to cloud services or third-party plugin implementations.",
-      "src_name": "Core Conversion Logic",
-      "dst_name": "External & Plugin Extensions",
-      "src_id": "2",
+      "relation": "Routes media URLs or specialized cloud-processing requests to external service handlers",
+      "src_name": "Orchestration & Routing",
+      "dst_name": "AI & External Service Adapters",
+      "src_id": "1",
       "dst_id": "5",
       "edge_count": 0,
       "is_static": false
     },
     {
+      "relation": "Delegates complex sub-tasks like table reconstruction and math conversion to utility modules",
+      "src_name": "Document & Office Processing",
+      "dst_name": "Specialized Extraction Utilities",
+      "src_id": "3",
+      "dst_id": "4",
+      "edge_count": 1,
+      "is_static": true
+    },
+    {
+      "relation": "Wraps or inherits from standard converters to add image-analysis capabilities",
+      "src_name": "Vision & OCR Enhancement",
+      "dst_name": "Document & Office Processing",
+      "src_id": "6",
+      "dst_id": "3",
+      "edge_count": 0,
+      "is_static": false
+    },
+    {
+      "relation": "Returns standardized DocumentConverterResult objects from external API responses",
+      "src_name": "AI & External Service Adapters",
+      "dst_name": "Conversion Schema & Base Logic",
+      "src_id": "5",
+      "dst_id": "2",
+      "edge_count": 4,
+      "is_static": true
+    },
+    {
       "relation": "calls",
-      "src_name": "Core Conversion Logic",
-      "dst_name": "Orchestration & Interface",
+      "src_name": "Conversion Schema & Base Logic",
+      "dst_name": "Orchestration & Routing",
       "src_id": "2",
       "dst_id": "1",
       "edge_count": 1,
@@ -4086,8 +4363,8 @@
     },
     {
       "relation": "calls",
-      "src_name": "Specialized Document Parsers",
-      "dst_name": "Orchestration & Interface",
+      "src_name": "Document & Office Processing",
+      "dst_name": "Orchestration & Routing",
       "src_id": "3",
       "dst_id": "1",
       "edge_count": 2,
@@ -4095,8 +4372,8 @@
     },
     {
       "relation": "calls",
-      "src_name": "Specialized Document Parsers",
-      "dst_name": "Core Conversion Logic",
+      "src_name": "Document & Office Processing",
+      "dst_name": "Conversion Schema & Base Logic",
       "src_id": "3",
       "dst_id": "2",
       "edge_count": 6,
@@ -4104,12 +4381,13 @@
     },
     {
       "relation": "calls",
-      "src_name": "External & Plugin Extensions",
-      "dst_name": "Core Conversion Logic",
+      "src_name": "AI & External Service Adapters",
+      "dst_name": "Document & Office Processing",
       "src_id": "5",
-      "dst_id": "2",
+      "dst_id": "3",
       "edge_count": 1,
       "is_static": true
     }
-  ]
+  ],
+  "snapshotCommit": "6c93e5c3157032e8d4f10798fea2ca87206fdfec"
 }
